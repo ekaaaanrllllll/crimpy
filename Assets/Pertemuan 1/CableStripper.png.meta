@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: 415c2125bd76d084586f11dd9812810f
+guid: e6a7e2c9c9d075b42a9b9aeea6538bc9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4319777727761456701
-    second: Tang Crimping (2)_0
+      213: 3184404540765279283
+    second: CableStripper_0
   - first:
-      213: 5057903449967775184
-    second: Tang Crimping (2)_1
+      213: -2864642222747361412
+    second: CableStripper_1
   - first:
-      213: -6821302561828746863
-    second: Tang Crimping (2)_2
+      213: -3591395462104275875
+    second: CableStripper_2
   - first:
-      213: -3646389518772316445
-    second: Tang Crimping (2)_3
+      213: 6961893795665046844
+    second: CableStripper_3
   - first:
-      213: -2458662692954002355
-    second: Tang Crimping (2)_4
+      213: -9063380878104305159
+    second: CableStripper_4
   - first:
-      213: -8687314987904653867
-    second: Tang Crimping (2)_5
+      213: -433261942538571320
+    second: CableStripper_5
   - first:
-      213: -5561437629282641689
-    second: Tang Crimping (2)_6
+      213: 6538120177552216733
+    second: CableStripper_6
   - first:
-      213: 2876578206567783251
-    second: Tang Crimping (2)_7
+      213: 4810935995769322162
+    second: CableStripper_7
   - first:
-      213: 5206018784686400250
-    second: Tang Crimping (2)_8
+      213: 6349730403236656431
+    second: CableStripper_8
   - first:
-      213: 6079328981303316345
-    second: Tang Crimping (2)_9
+      213: 978693829744368234
+    second: CableStripper_9
   - first:
-      213: 110103247650151570
-    second: Tang Crimping (2)_10
+      213: 1080933564192933564
+    second: CableStripper_10
   - first:
-      213: 598418534945232414
-    second: Tang Crimping (2)_11
+      213: -2099377681970626828
+    second: CableStripper_11
   - first:
-      213: -1725058769481585358
-    second: Tang Crimping (2)_12
+      213: 5424057570147212614
+    second: CableStripper_12
   - first:
-      213: 8903786898699395706
-    second: Tang Crimping (2)_13
+      213: -1223712766500538258
+    second: CableStripper_13
   - first:
-      213: -2954911984857343890
-    second: Tang Crimping (2)_14
+      213: -8799191223700075527
+    second: CableStripper_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,19 +139,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -168,13 +155,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tang Crimping (2)_0
+      name: CableStripper_0
       rect:
         serializedVersion: 2
-        x: 292
-        y: 240
-        width: 1339
-        height: 627
+        x: 197
+        y: 289
+        width: 1529
+        height: 519
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c162243b011d04c0800000000000000
-      internalID: -4319777727761456701
+      spriteID: 3349471ee07413c20800000000000000
+      internalID: 3184404540765279283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_1
+      name: CableStripper_1
       rect:
         serializedVersion: 2
-        x: 578
-        y: 132
-        width: 57
-        height: 73
+        x: 459
+        y: 114
+        width: 96
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0dd4d8bc368413640800000000000000
-      internalID: 5057903449967775184
+      spriteID: c7fde80731fbe38d0800000000000000
+      internalID: -2864642222747361412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_2
+      name: CableStripper_2
       rect:
         serializedVersion: 2
-        x: 863
-        y: 131
-        width: 71
-        height: 74
+        x: 659
+        y: 114
+        width: 84
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1994cb8f57dd551a0800000000000000
-      internalID: -6821302561828746863
+      spriteID: d542351fadcc82ec0800000000000000
+      internalID: -3591395462104275875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_3
+      name: CableStripper_3
       rect:
         serializedVersion: 2
-        x: 983
-        y: 193
-        width: 23
-        height: 21
+        x: 752
+        y: 115
+        width: 26
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e65ed45d0c656dc0800000000000000
-      internalID: -3646389518772316445
+      spriteID: c3d6c9e758d9d9060800000000000000
+      internalID: 6961893795665046844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_4
+      name: CableStripper_4
       rect:
         serializedVersion: 2
-        x: 1186
-        y: 193
-        width: 24
-        height: 21
+        x: 903
+        y: 114
+        width: 75
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,108 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d4ca8fbae4311edd0800000000000000
-      internalID: -2458662692954002355
+      spriteID: 9f166887c17683280800000000000000
+      internalID: -9063380878104305159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_5
-      rect:
-        serializedVersion: 2
-        x: 638
-        y: 131
-        width: 62
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d5240ebb05707780800000000000000
-      internalID: -8687314987904653867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tang Crimping (2)_6
-      rect:
-        serializedVersion: 2
-        x: 709
-        y: 132
-        width: 58
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e81e1221fdc1d2b0800000000000000
-      internalID: -5561437629282641689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tang Crimping (2)_7
-      rect:
-        serializedVersion: 2
-        x: 773
-        y: 104
-        width: 62
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35b5a1b53a8abe720800000000000000
-      internalID: 2876578206567783251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tang Crimping (2)_8
-      rect:
-        serializedVersion: 2
-        x: 942
-        y: 132
-        width: 37
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: af26e33808e7f3840800000000000000
-      internalID: 5206018784686400250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tang Crimping (2)_9
+      name: CableStripper_5
       rect:
         serializedVersion: 2
         x: 984
-        y: 132
-        width: 21
-        height: 58
+        y: 115
+        width: 51
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 97f4253bf7d1e5450800000000000000
-      internalID: 6079328981303316345
+      spriteID: 8c1fa4c0f8ebcf9f0800000000000000
+      internalID: -433261942538571320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_10
+      name: CableStripper_6
       rect:
         serializedVersion: 2
-        x: 1014
-        y: 132
-        width: 97
-        height: 59
+        x: 1101
+        y: 199
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 29cddc4025a278100800000000000000
-      internalID: 110103247650151570
+      spriteID: d9250d939a11cba50800000000000000
+      internalID: 6538120177552216733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_11
+      name: CableStripper_7
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 105
-        width: 62
-        height: 86
+        x: 562
+        y: 114
+        width: 83
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -425,20 +324,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e169b6aac720e4800800000000000000
-      internalID: 598418534945232414
+      spriteID: 2ba78f87cc0e3c240800000000000000
+      internalID: 4810935995769322162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_12
+      name: CableStripper_8
       rect:
         serializedVersion: 2
-        x: 1188
-        y: 132
-        width: 20
-        height: 58
+        x: 788
+        y: 114
+        width: 79
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23da06c503c5f08e0800000000000000
-      internalID: -1725058769481585358
+      spriteID: f253b60d826ce1850800000000000000
+      internalID: 6349730403236656431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_13
+      name: CableStripper_9
       rect:
         serializedVersion: 2
-        x: 1217
-        y: 132
-        width: 59
-        height: 59
+        x: 1045
+        y: 115
+        width: 50
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7221c4920b909b70800000000000000
-      internalID: 8903786898699395706
+      spriteID: a6a97c15ad4059d00800000000000000
+      internalID: 978693829744368234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tang Crimping (2)_14
+      name: CableStripper_10
       rect:
         serializedVersion: 2
-        x: 1281
-        y: 104
-        width: 62
-        height: 87
+        x: 1103
+        y: 115
+        width: 27
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -491,8 +390,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e689800a43b0ef6d0800000000000000
-      internalID: -2954911984857343890
+      spriteID: cb6448f795f300f00800000000000000
+      internalID: 1080933564192933564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CableStripper_11
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 78
+        width: 84
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fef1c80f138dd2e0800000000000000
+      internalID: -2099377681970626828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CableStripper_12
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 78
+        width: 83
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64d94e54f9f164b40800000000000000
+      internalID: 5424057570147212614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CableStripper_13
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 114
+        width: 79
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e68ff9de8bf740fe0800000000000000
+      internalID: -1223712766500538258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CableStripper_14
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 115
+        width: 50
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb4f90c33ef2e580800000000000000
+      internalID: -8799191223700075527
       vertices: []
       indices: 
       edges: []
@@ -511,21 +498,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tang Crimping (2)_0: -4319777727761456701
-      Tang Crimping (2)_1: 5057903449967775184
-      Tang Crimping (2)_10: 110103247650151570
-      Tang Crimping (2)_11: 598418534945232414
-      Tang Crimping (2)_12: -1725058769481585358
-      Tang Crimping (2)_13: 8903786898699395706
-      Tang Crimping (2)_14: -2954911984857343890
-      Tang Crimping (2)_2: -6821302561828746863
-      Tang Crimping (2)_3: -3646389518772316445
-      Tang Crimping (2)_4: -2458662692954002355
-      Tang Crimping (2)_5: -8687314987904653867
-      Tang Crimping (2)_6: -5561437629282641689
-      Tang Crimping (2)_7: 2876578206567783251
-      Tang Crimping (2)_8: 5206018784686400250
-      Tang Crimping (2)_9: 6079328981303316345
+      CableStripper_0: 3184404540765279283
+      CableStripper_1: -2864642222747361412
+      CableStripper_10: 1080933564192933564
+      CableStripper_11: -2099377681970626828
+      CableStripper_12: 5424057570147212614
+      CableStripper_13: -1223712766500538258
+      CableStripper_14: -8799191223700075527
+      CableStripper_2: -3591395462104275875
+      CableStripper_3: 6961893795665046844
+      CableStripper_4: -9063380878104305159
+      CableStripper_5: -433261942538571320
+      CableStripper_6: 6538120177552216733
+      CableStripper_7: 4810935995769322162
+      CableStripper_8: 6349730403236656431
+      CableStripper_9: 978693829744368234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,46 +1,52 @@
 fileFormatVersion: 2
-guid: cf90613726ceed5468ebca3a69628230
+guid: 43c18e879bbf4ef469dd905503370941
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4211274171376503113
-    second: KonektorRJ45_0
+      213: -824317339006758927
+    second: TangCrimping_0
   - first:
-      213: 4252823973173554566
-    second: KonektorRJ45_1
+      213: 241763665328121108
+    second: TangCrimping_1
   - first:
-      213: -6040508680422217581
-    second: KonektorRJ45_2
+      213: 820723520186206632
+    second: TangCrimping_2
   - first:
-      213: 4260056305821678576
-    second: KonektorRJ45_3
+      213: 2963208035849901638
+    second: TangCrimping_3
   - first:
-      213: 5321344586191125605
-    second: KonektorRJ45_4
+      213: -7987278228505190932
+    second: TangCrimping_4
   - first:
-      213: -2001885404536589424
-    second: KonektorRJ45_5
+      213: 4692592031402387158
+    second: TangCrimping_5
   - first:
-      213: 5572406958382980032
-    second: KonektorRJ45_6
+      213: -8250235529648032361
+    second: TangCrimping_6
   - first:
-      213: 8775922523537232559
-    second: KonektorRJ45_7
+      213: -1721850717018258288
+    second: TangCrimping_7
   - first:
-      213: -2884709727516653199
-    second: KonektorRJ45_8
+      213: -4140482585858875286
+    second: TangCrimping_8
   - first:
-      213: 9157501058610960889
-    second: KonektorRJ45_9
+      213: -9160966760706250805
+    second: TangCrimping_9
   - first:
-      213: -1968686638938957082
-    second: KonektorRJ45_10
+      213: -8255326124723503451
+    second: TangCrimping_10
   - first:
-      213: -1044165426912253633
-    second: KonektorRJ45_11
+      213: -2753693855555645190
+    second: TangCrimping_11
   - first:
-      213: -2914485760294721396
-    second: KonektorRJ45_12
+      213: -31098143457742820
+    second: TangCrimping_12
+  - first:
+      213: 4091720851775260700
+    second: TangCrimping_13
+  - first:
+      213: 1472720448177565639
+    second: TangCrimping_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,19 +139,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -162,13 +155,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KonektorRJ45_0
+      name: TangCrimping_0
       rect:
         serializedVersion: 2
-        x: 32
-        y: 156
-        width: 935
-        height: 723
+        x: 139
+        y: 245
+        width: 1678
+        height: 729
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9498caceb83717a30800000000000000
-      internalID: 4211274171376503113
+      spriteID: 1ff8e426fbf6f84f0800000000000000
+      internalID: -824317339006758927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_1
+      name: TangCrimping_1
       rect:
         serializedVersion: 2
-        x: 78
-        y: 35
-        width: 65
-        height: 73
+        x: 469
+        y: 114
+        width: 96
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68d66450fd0150b30800000000000000
-      internalID: 4252823973173554566
+      spriteID: 415aa7fc5caea5300800000000000000
+      internalID: 241763665328121108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_2
+      name: TangCrimping_2
       rect:
         serializedVersion: 2
-        x: 145
-        y: 34
-        width: 61
-        height: 60
+        x: 633
+        y: 199
+        width: 30
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39825c0fb5dcb2ca0800000000000000
-      internalID: -6040508680422217581
+      spriteID: 8a9c18771bbc36b00800000000000000
+      internalID: 820723520186206632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_3
+      name: TangCrimping_3
       rect:
         serializedVersion: 2
-        x: 212
-        y: 35
-        width: 58
-        height: 59
+        x: 910
+        y: 199
+        width: 31
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fbf9afa3a2ce1b30800000000000000
-      internalID: 4260056305821678576
+      spriteID: 6469a64420e6f1920800000000000000
+      internalID: 2963208035849901638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_4
+      name: TangCrimping_4
       rect:
         serializedVersion: 2
-        x: 276
-        y: 34
-        width: 59
-        height: 60
+        x: 1161
+        y: 115
+        width: 77
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56cbe5b15b639d940800000000000000
-      internalID: 5321344586191125605
+      spriteID: ced9cb305cc772190800000000000000
+      internalID: -7987278228505190932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_5
+      name: TangCrimping_5
       rect:
         serializedVersion: 2
-        x: 341
-        y: 35
-        width: 58
-        height: 76
+        x: 1421
+        y: 115
+        width: 26
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +280,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 093be8db4dfd734e0800000000000000
-      internalID: -2001885404536589424
+      spriteID: 6d66193179f6f1140800000000000000
+      internalID: 4692592031402387158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_6
+      name: TangCrimping_6
       rect:
         serializedVersion: 2
-        x: 398
-        y: 35
-        width: 39
-        height: 72
+        x: 577
+        y: 115
+        width: 50
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,20 +302,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0cb1552da9a255d40800000000000000
-      internalID: 5572406958382980032
+      spriteID: 795b5065f76418d80800000000000000
+      internalID: -8250235529648032361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_7
+      name: TangCrimping_7
       rect:
         serializedVersion: 2
-        x: 440
-        y: 34
-        width: 61
-        height: 60
+        x: 635
+        y: 115
+        width: 26
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,20 +324,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa259cfc9075ac970800000000000000
-      internalID: 8775922523537232559
+      spriteID: 09400e745e1ca18e0800000000000000
+      internalID: -1721850717018258288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_8
+      name: TangCrimping_8
       rect:
         serializedVersion: 2
-        x: 507
-        y: 35
-        width: 37
-        height: 59
+        x: 675
+        y: 115
+        width: 132
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 179814369c377f7d0800000000000000
-      internalID: -2884709727516653199
+      spriteID: a60e03f760d0a86c0800000000000000
+      internalID: -4140482585858875286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_9
+      name: TangCrimping_9
       rect:
         serializedVersion: 2
-        x: 571
-        y: 35
-        width: 58
-        height: 73
+        x: 820
+        y: 78
+        width: 83
+        height: 117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,20 +368,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f915ccb1baf51f70800000000000000
-      internalID: 9157501058610960889
+      spriteID: bc761fc9445bdd080800000000000000
+      internalID: -9160966760706250805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_10
+      name: TangCrimping_10
       rect:
         serializedVersion: 2
-        x: 632
-        y: 34
-        width: 51
-        height: 74
+        x: 912
+        y: 115
+        width: 27
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,20 +390,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ea5cf3bee1dda4e0800000000000000
-      internalID: -1968686638938957082
+      spriteID: 5ae7adec0a03f6d80800000000000000
+      internalID: -8255326124723503451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_11
+      name: TangCrimping_11
       rect:
         serializedVersion: 2
-        x: 692
-        y: 35
-        width: 62
-        height: 74
+        x: 953
+        y: 115
+        width: 78
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,20 +412,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f39a62293116281f0800000000000000
-      internalID: -1044165426912253633
+      spriteID: af01e6f270ae8c9d0800000000000000
+      internalID: -2753693855555645190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: KonektorRJ45_12
+      name: TangCrimping_12
       rect:
         serializedVersion: 2
-        x: 764
-        y: 35
-        width: 54
-        height: 75
+        x: 1040
+        y: 77
+        width: 83
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,8 +434,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c88e2b284aaad87d0800000000000000
-      internalID: -2914485760294721396
+      spriteID: c10f60e3764819ff0800000000000000
+      internalID: -31098143457742820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TangCrimping_13
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 114
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c188f129f66b8c830800000000000000
+      internalID: 4091720851775260700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TangCrimping_14
+      rect:
+        serializedVersion: 2
+        x: 1329
+        y: 114
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfe31fd177207410800000000000000
+      internalID: 1472720448177565639
       vertices: []
       indices: 
       edges: []
@@ -461,19 +498,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      KonektorRJ45_0: 4211274171376503113
-      KonektorRJ45_1: 4252823973173554566
-      KonektorRJ45_10: -1968686638938957082
-      KonektorRJ45_11: -1044165426912253633
-      KonektorRJ45_12: -2914485760294721396
-      KonektorRJ45_2: -6040508680422217581
-      KonektorRJ45_3: 4260056305821678576
-      KonektorRJ45_4: 5321344586191125605
-      KonektorRJ45_5: -2001885404536589424
-      KonektorRJ45_6: 5572406958382980032
-      KonektorRJ45_7: 8775922523537232559
-      KonektorRJ45_8: -2884709727516653199
-      KonektorRJ45_9: 9157501058610960889
+      TangCrimping_0: -824317339006758927
+      TangCrimping_1: 241763665328121108
+      TangCrimping_10: -8255326124723503451
+      TangCrimping_11: -2753693855555645190
+      TangCrimping_12: -31098143457742820
+      TangCrimping_13: 4091720851775260700
+      TangCrimping_14: 1472720448177565639
+      TangCrimping_2: 820723520186206632
+      TangCrimping_3: 2963208035849901638
+      TangCrimping_4: -7987278228505190932
+      TangCrimping_5: 4692592031402387158
+      TangCrimping_6: -8250235529648032361
+      TangCrimping_7: -1721850717018258288
+      TangCrimping_8: -4140482585858875286
+      TangCrimping_9: -9160966760706250805
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
