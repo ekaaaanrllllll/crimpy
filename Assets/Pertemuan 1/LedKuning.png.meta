@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2859aaf316434434e9f5d3f1f46d9e1c
+guid: 676ea5143fe64a7418348ea819afb440
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6055896122506843344
-    second: LanTester_0
+      213: 5184453862971319429
+    second: LedKuning_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LanTester_0
+      name: LedKuning_0
       rect:
         serializedVersion: 2
-        x: 524
-        y: 87
-        width: 866
-        height: 935
+        x: 537
+        y: 117
+        width: 847
+        height: 843
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 03b6055ef8225fba0800000000000000
-      internalID: -6055896122506843344
+      spriteID: 584aec8e151e2f740800000000000000
+      internalID: 5184453862971319429
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LanTester_0: -6055896122506843344
+      LedKuning_0: 5184453862971319429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

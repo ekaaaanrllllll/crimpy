@@ -92,29 +92,26 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         }
     }
 
-    // Fungsi Menancap Sempurna
     void LakukanSnapNLockTuntas()
     {
         isLocked = true;
-        // PENTING: Paksa ke angka locked presisi
         rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, posY_Locked);
-        Debug.Log("KABEL BERHASIL DITANCAPKAN & DIKUNCI!");
+        Debug.Log("KABEL BERHASIL DITANCAPKAN & DIKUNCI!!");
         
-        // Matikan interaksi (Raycast Target) atau script ini biar visual ga bisa di drag lagi
         GetComponent<Image>().raycastTarget = false;
         
-        // // Panggil Popup Sukses (Bahasan SOP kita kemarin!)
+        // --- TAMBAHKAN KODE INI BOS ---
+        if(FindObjectOfType<LanTesterPower>() != null)
+        {
+            FindObjectOfType<LanTesterPower>().AktifkanSwitchInput();
+        }
+        // -----------------------------
+        
         // if(slideManager != null)
         // {
-        //     // Beri jeda dikit biar visual snap kerasa
         //     Invoke("TampilkanPopupManager", 0.5f);
         // }
     }
-
-    // void TampilkanPopupManager()
-    // {
-    //     slideManager.TampilkanPopup();
-    // }
 
     // Fungsi Snap balik ke atas karena pemain lepas di tengah jalan
     void LakukanSnapBackKeReady()
