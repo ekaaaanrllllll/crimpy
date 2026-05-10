@@ -152,7 +152,7 @@ public class PotongKabelGeser : MonoBehaviour, IDragHandler, IEndDragHandler
         // 3. LAPOR KE SLIDE MANAGER KALAU PUZZLE BERES!
         if(slideManagerUtama != null) 
         {
-            slideManagerUtama.BukaGembokSlideIni();
+            slideManagerUtama.TampilkanPopupSelesai();
         }
 
         yield return new WaitForSeconds(0.5f);

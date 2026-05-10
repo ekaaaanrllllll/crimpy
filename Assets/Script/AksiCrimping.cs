@@ -100,15 +100,9 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
             imageKabelRJ45.rectTransform.sizeDelta = new Vector2(402.2377f, 226.2587f);
         }
 
-        // // Memanggil popup sukses dari SlideManager (Konsep baru yang tadi kita bahas)
-        // SlideManager slideMgr = FindObjectOfType<SlideManager>();
-        // if(slideMgr != null)
-        // {
-        //     slideMgr.TampilkanPopup();
-        // }
-        // else
-        // {
-        //     Debug.LogWarning("SlideManager tidak ditemukan, pastikan ada di scene!");
-        // }
+        if (FindFirstObjectByType<SlideManager>() != null)
+        {
+            FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+        }
     }
 }

@@ -17,7 +17,11 @@ public class LanTesterManager : MonoBehaviour
     public float alphaMati = 0.2f;  // Redup
     public float alphaNyala = 1.0f; // Terang benderang
 
+    [Header("Pengaturan Popup (Looping)")]
+    public int targetPutaran = 6; // Berapa balikan sebelum popup muncul
+
     private Coroutine sequenceCoroutine;
+    private bool popupSudahMuncul = false; // Biar popup ga kepanggil berkali-kali
 
     void Start()
     {
@@ -30,6 +34,7 @@ public class LanTesterManager : MonoBehaviour
     {
         if (isMulai)
         {
+            popupSudahMuncul = false; // Reset status popup kalau alat dinyalakan ulang
             if (sequenceCoroutine != null) StopCoroutine(sequenceCoroutine);
             sequenceCoroutine = StartCoroutine(JalankanSequenceLampu());
         }
@@ -43,6 +48,7 @@ public class LanTesterManager : MonoBehaviour
     IEnumerator JalankanSequenceLampu()
     {
         int index = 0;
+        int jumlahPutaran = 0; // Variabel baru untuk menghitung balikan
         
         // Looping terus-menerus selama alat menyala
         while (true) 
@@ -60,10 +66,26 @@ public class LanTesterManager : MonoBehaviour
             // 4. Lanjut ke lampu berikutnya
             index++;
             
-            // 5. Kalau index udah sampai 8 (melewati batas), balik lagi ke 0 (Lampu 1)
+            // 5. Kalau index udah sampai 8, balik lagi ke 0 (Satu putaran selesai!)
             if (index >= 8) 
             {
-                index = 0;
+                index = 0; // Balik ke lampu 1
+                jumlahPutaran++; // Tambah hitungan putaran
+
+                // CEK APAKAH SUDAH 6 PUTARAN & POPUP BELUM MUNCUL
+                if (jumlahPutaran >= targetPutaran && !popupSudahMuncul)
+                {
+                    popupSudahMuncul = true; // Kunci biar ga manggil popup lagi di putaran ke 7, 8, dst.
+                    
+                    // ==========================================
+                    // --- MEMANGGIL POPUP SUKSES DARI SINI ---
+                    // ==========================================
+                    if (FindFirstObjectByType<SlideManager>() != null)
+                    {
+                        FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+                    }
+                    // ==========================================
+                }
             }
         }
     }
@@ -86,8 +108,6 @@ public class LanTesterManager : MonoBehaviour
     {
         if (led == null) return;
         Color c = led.color;
-        // Asumsi warna gambar UI LED kamu sudah oranye/hijau, 
-        // kita cuma ubah Alpha (A) supaya seolah-olah nyala/mati.
         c.a = alphaValue; 
         led.color = c;
     }

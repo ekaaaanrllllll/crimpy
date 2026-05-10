@@ -35,7 +35,7 @@ public class CekSusunanKabel : MonoBehaviour
             Debug.Log("MANTAP! Kedua ujung kabel sudah benar (T568B).");
             if (slideManagerUtama != null)
             {
-                slideManagerUtama.BukaGembokSlideIni(); // Buka tombol Next!
+                slideManagerUtama.TampilkanPopupSelesai(); // Buka tombol Next!
             }
         }
         else if (!kiriBenar && !kananBenar)
