@@ -1,34 +1,26 @@
 using UnityEngine;
-using UnityEngine.UI; // Wajib untuk mengakses komponen Image dan Sprite
-using UnityEngine.EventSystems; // Wajib untuk deteksi klik
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
-public class AksiCrimping : MonoBehaviour, IPointerClickHandler // Interface untuk klik
+public class AksiCrimping : MonoBehaviour, IPointerClickHandler
 {
     [Header("Scripts & Objects References")]
-    [Tooltip("Tarik komponen Image TangCrimpingZoom dari dirinya sendiri ke sini")]
     public Image imageTangUtama; 
-    [Tooltip("Tarik komponen Image KabelZoom (RJ45) ke sini (Opsional)")]
     public Image imageKabelRJ45; 
+    public AudioSource suaraKrak; 
 
-    [Header("Sprites (Tarik Assets Gambar ke Sini)")]
-    [Tooltip("Asset gambar tang posisi KEBuka (seperti yang sekarang)")]
+    [Header("Sprites")]
     public Sprite spriteTangKebuka;  
-    [Tooltip("Asset gambar tang posisi KETUTUP (yang baru kamu punya)")]
     public Sprite spriteTangKetutup; 
-    [Tooltip("Asset gambar RJ45 yang sudah penyok dicrimp (jika ada, kalau gak ada kosongkan)")]
     public Sprite spriteRJ45CrimpAfter; 
 
     [Header("Crimping Mechanics")]
-    [Tooltip("Berapa kali double-click krak (kiri-kanan)")]
     public int totalKrakMekanisme = 3; 
     private int krakCounter = 0;
-    
-    // (Opsional) Public AudioSource suaraKrak; // Kalau ada suara "Krak!"
 
     void Awake()
     {
-        // Pastikan saat game mulai, gambarnya adalah tang kebuka
         if (imageTangUtama != null && spriteTangKebuka != null)
         {
             imageTangUtama.sprite = spriteTangKebuka;
@@ -37,7 +29,6 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler // Interface unt
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Mendeteksi DOUBLE CLICK
         if (eventData.clickCount == 2) 
         {
             ProsesKlikJepitSempurna();
@@ -49,12 +40,14 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler // Interface unt
         if (krakCounter < totalKrakMekanisme)
         {
             krakCounter++;
-            Debug.Log("Krak! ke-" + krakCounter + "/" + totalKrakMekanisme);
+            Debug.Log("Krak! ke-" + krakCounter);
+            
+            if (suaraKrak != null)
+            {
+                suaraKrak.Stop(); 
+                suaraKrak.Play();
+            }
 
-            // if (suaraKrak != null) suaraKrak.Play(); // Mainkan suara
-
-            // Jalankan animasi pergantian sprite yang super realistis
-            // Kita matikan dulu animasi lama (kalau user klik cepet banget) biar gak tumpang tindih
             StopAllCoroutines(); 
             StartCoroutine(AnimasiJepitSnapPergantianSprite());
 
@@ -65,41 +58,51 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler // Interface unt
         }
     }
 
+    [Header("Perbaikan Posisi (Fine Tuning)")]
+    [Tooltip("Seberapa jauh tang bergeser (X, Y) saat posisi KETUTUP agar kabel pas")]
+    public Vector2 offsetTangKetutup = new Vector2(0f, 0f); // default 0,0
+
     IEnumerator AnimasiJepitSnapPergantianSprite()
     {
-        // --- FASE 1: JEpit (Hold) ---
-        // TUKAR LANGSUNG JADI GAMBAR KETUTUP (Dalam waktu 0 detik)
+        // --- 1. Simpan posisi asli tang kebuka ---
+        Vector2 posisiAsli = imageTangUtama.rectTransform.anchoredPosition;
+
+        // --- 2. Ganti ke gambar ketutup ---
         imageTangUtama.sprite = spriteTangKetutup;
 
-        // TAHAN GAYA JEPIT (Di sinilah kuncinya biar kerasa "nahan beban")
-        // Semakin lama ditahan, semakin kuat feel jepitnya. Coba di antara 0.1s - 0.2s.
-        yield return new WaitForSeconds(0.18f); 
+        // --- 3. TERAPKAN OFFSET ---
+        // Kita geser posisi tangnya sedikit agar visualnya pas dengan kabel
+        imageTangUtama.rectTransform.anchoredPosition = posisiAsli + offsetTangKetutup;
 
-        // --- FASE 2: LEPAS (Snap) ---
-        // KEMBALIKAN LANGSUNG JADI GAMBAR KEBuka (Snap back)
+        // Tahan sebentar biar kerasa ngejepit
+        yield return new WaitForSeconds(0.18f); 
+        
+        // --- 4. Balik lagi ke gambar kebuka ---
         imageTangUtama.sprite = spriteTangKebuka;
+
+        // --- 5. KEMBALIKAN KE POSISI ASLI ---
+        imageTangUtama.rectTransform.anchoredPosition = posisiAsli;
     }
 
     void CrimpingSelesaiTuntas()
     {
-        // MATIKAN script ini biar nggak bisa diklik ganda lagi
+        // Matikan script agar tidak bisa di-klik lagi
         this.enabled = false;
-        
         Debug.Log("KABEL BERHASIL DICRIMP SEMPURNA!");
 
-        // GANTI GAMBAR KABEL JADI "KABEL SUDAH DI-CRIMP"
+        // Update gambar kabel RJ45 beserta posisi dan ukurannya yang BENAR
         if(imageKabelRJ45 != null && spriteRJ45CrimpAfter != null)
         {
-            // 1. Ganti gambarnya
             imageKabelRJ45.sprite = spriteRJ45CrimpAfter;
-
-            // 2. Kunci Width dan Height sesuai screenshot kamu
-            imageKabelRJ45.rectTransform.sizeDelta = new Vector2(255.1784f, 143.54f);
-
-            // 3. Kunci Posisi X dan Y biar posisinya nggak geser dari lubang tang
-            imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-379.4397f, 4.7002f);
+            
+            // Menggunakan koordinat terbaru dari screenshot kamu
+            imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-154.7229f, 87.76799f);
+            imageKabelRJ45.rectTransform.sizeDelta = new Vector2(402.2377f, 226.2587f);
         }
 
-        // DI SINI BISA BUKA GEMBOK TOMBOL "NEXT" DI SLIDE MANAGER
+        if (FindFirstObjectByType<SlideManager>() != null)
+        {
+            FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+        }
     }
 }

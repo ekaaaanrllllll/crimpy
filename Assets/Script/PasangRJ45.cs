@@ -46,7 +46,14 @@ public class PasangRJ45 : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDr
             sudahTerpasang = true;
             Debug.Log("Kabel berhasil masuk ke RJ45!");
             
-            // (Opsional) Matikan kabel lama, nyalakan kabel utuh jika pakai sistem switch
+            // ==========================================
+            // --- KODE POPUP DITAMBAHKAN DI SINI BOS ---
+            // ==========================================
+            if (FindFirstObjectByType<SlideManager>() != null)
+            {
+                FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+            }
+            // ==========================================
         }
         else
         {

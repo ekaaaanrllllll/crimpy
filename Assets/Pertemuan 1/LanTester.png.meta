@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 4d29af0a724eb0f418d3fd652a616ea8
+guid: acef18b0ca72248489312ecc10f7f62a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8408670247771145202
-    second: LAN Tester_0
+      213: -6055896122506843344
+    second: LanTester_0
   - first:
-      213: 7466578351659960875
-    second: LAN Tester_1
+      213: -2259761749463435246
+    second: LanTester_1
   - first:
-      213: -8960637598274313354
-    second: LAN Tester_2
+      213: -1689910068091401128
+    second: LanTester_2
   - first:
-      213: 2472582963130587466
-    second: LAN Tester_3
+      213: -5848148495511047095
+    second: LanTester_3
   - first:
-      213: -4412584504272969411
-    second: LAN Tester_4
+      213: -1883491952994788353
+    second: LanTester_4
   - first:
-      213: 5437463660094281958
-    second: LAN Tester_5
+      213: 8012057179340916636
+    second: LanTester_5
   - first:
-      213: 7665626594951736546
-    second: LAN Tester_6
+      213: 5095349752648226920
+    second: LanTester_6
   - first:
-      213: -5284165995565081594
-    second: LAN Tester_7
+      213: 2411177676257000639
+    second: LanTester_7
   - first:
-      213: 1702593502819600258
-    second: LAN Tester_8
+      213: 2046979642245787965
+    second: LanTester_8
   - first:
-      213: 1885774635294165775
-    second: LAN Tester_9
+      213: 5506312322893517199
+    second: LanTester_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,19 +124,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -153,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LAN Tester_0
+      name: LanTester_0
       rect:
         serializedVersion: 2
-        x: 12
-        y: 163
-        width: 803
-        height: 850
+        x: 605
+        y: 200
+        width: 706
+        height: 761
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,86 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f38bcf0a0991b470800000000000000
-      internalID: 8408670247771145202
+      spriteID: 03b6055ef8225fba0800000000000000
+      internalID: -6055896122506843344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LAN Tester_1
+      name: LanTester_1
       rect:
         serializedVersion: 2
-        x: 172
-        y: 53
-        width: 42
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2a4052837d9e9760800000000000000
-      internalID: 7466578351659960875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LAN Tester_2
-      rect:
-        serializedVersion: 2
-        x: 215
-        y: 53
-        width: 74
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 673a9d1749b65a380800000000000000
-      internalID: -8960637598274313354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LAN Tester_3
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 53
-        width: 66
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a49d41bca11605220800000000000000
-      internalID: 2472582963130587466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LAN Tester_4
-      rect:
-        serializedVersion: 2
-        x: 386
-        y: 53
+        x: 599
+        y: 59
         width: 57
-        height: 73
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d31aa61b5c953c2c0800000000000000
-      internalID: -4412584504272969411
+      spriteID: 218773e59a6b3a0e0800000000000000
+      internalID: -2259761749463435246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LAN Tester_5
+      name: LanTester_2
       rect:
         serializedVersion: 2
-        x: 446
-        y: 52
-        width: 58
-        height: 60
+        x: 658
+        y: 59
+        width: 99
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,20 +199,108 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6e8d303d360c57b40800000000000000
-      internalID: 5437463660094281958
+      spriteID: 85c4e012fbb3c88e0800000000000000
+      internalID: -1689910068091401128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LAN Tester_6
+      name: LanTester_3
       rect:
         serializedVersion: 2
-        x: 508
-        y: 52
+        x: 765
+        y: 59
+        width: 88
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 944345b9de337dea0800000000000000
+      internalID: -5848148495511047095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LanTester_4
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 59
+        width: 77
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffb50744c0e7cd5e0800000000000000
+      internalID: -1883491952994788353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LanTester_5
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 58
+        width: 80
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97cbbe0e8b803f60800000000000000
+      internalID: 8012057179340916636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LanTester_6
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 58
+        width: 69
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 868d8fc8a9156b640800000000000000
+      internalID: 5095349752648226920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LanTester_7
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 59
         width: 51
-        height: 60
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +309,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2eca2ec16c6c16a60800000000000000
-      internalID: 7665626594951736546
+      spriteID: fbc76a35259367120800000000000000
+      internalID: 2411177676257000639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LAN Tester_7
+      name: LanTester_8
       rect:
         serializedVersion: 2
-        x: 562
-        y: 53
-        width: 39
-        height: 72
+        x: 1188
+        y: 58
+        width: 79
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,20 +331,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 60c1524160fdaa6b0800000000000000
-      internalID: -5284165995565081594
+      spriteID: d313486a325586c10800000000000000
+      internalID: 2046979642245787965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LAN Tester_8
+      name: LanTester_9
       rect:
         serializedVersion: 2
-        x: 604
-        y: 52
-        width: 58
-        height: 60
+        x: 1277
+        y: 59
+        width: 50
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,30 +353,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 287437425c3d0a710800000000000000
-      internalID: 1702593502819600258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LAN Tester_9
-      rect:
-        serializedVersion: 2
-        x: 668
-        y: 53
-        width: 38
-        height: 59
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0b862f1a0e9b2a10800000000000000
-      internalID: 1885774635294165775
+      spriteID: f819c6c42e95a6c40800000000000000
+      internalID: 5506312322893517199
       vertices: []
       indices: 
       edges: []
@@ -386,16 +373,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LAN Tester_0: 8408670247771145202
-      LAN Tester_1: 7466578351659960875
-      LAN Tester_2: -8960637598274313354
-      LAN Tester_3: 2472582963130587466
-      LAN Tester_4: -4412584504272969411
-      LAN Tester_5: 5437463660094281958
-      LAN Tester_6: 7665626594951736546
-      LAN Tester_7: -5284165995565081594
-      LAN Tester_8: 1702593502819600258
-      LAN Tester_9: 1885774635294165775
+      LanTester_0: -6055896122506843344
+      LanTester_1: -2259761749463435246
+      LanTester_2: -1689910068091401128
+      LanTester_3: -5848148495511047095
+      LanTester_4: -1883491952994788353
+      LanTester_5: 8012057179340916636
+      LanTester_6: 5095349752648226920
+      LanTester_7: 2411177676257000639
+      LanTester_8: 2046979642245787965
+      LanTester_9: 5506312322893517199
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

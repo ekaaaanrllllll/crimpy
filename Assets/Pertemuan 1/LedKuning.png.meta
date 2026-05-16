@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1dcba37bd0495444eaa2ec8a351c9608
+guid: 676ea5143fe64a7418348ea819afb440
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 668402052300217695
-    second: TangCrimpingBuka_0
+      213: 5184453862971319429
+    second: LedKuning_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TangCrimpingBuka_0
+      name: LedKuning_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 138
-        width: 1803
-        height: 783
+        x: 537
+        y: 117
+        width: 847
+        height: 843
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5d1f7e0024a64900800000000000000
-      internalID: 668402052300217695
+      spriteID: 584aec8e151e2f740800000000000000
+      internalID: 5184453862971319429
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TangCrimpingBuka_0: 668402052300217695
+      LedKuning_0: 5184453862971319429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

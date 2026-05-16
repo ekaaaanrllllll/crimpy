@@ -25,7 +25,7 @@ public class ManagerUraikanKabel : MonoBehaviour
             Debug.Log("Semua 4 Kabel Lurus! Buka gembok Next.");
             if (slideManagerUtama != null)
             {
-                slideManagerUtama.BukaGembokSlideIni();
+                slideManagerUtama.TampilkanPopupSelesai();
             }
         }
     }
