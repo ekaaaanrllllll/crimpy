@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 628b39a9e7a1e7342bdc4ec484cbd3a6
+guid: 18dffab6034403f4a857f18a1ffec37b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2932513457500294362
-    second: Next_0
+      213: -6254325446227268807
+    second: exit info_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Next_0
+      name: exit info_0
       rect:
         serializedVersion: 2
-        x: 498
-        y: 60
-        width: 932
-        height: 932
+        x: 15
+        y: 0
+        width: 904
+        height: 904
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 62374aa2c8e9d47d0800000000000000
-      internalID: -2932513457500294362
+      spriteID: 93befebb42c2439a0800000000000000
+      internalID: -6254325446227268807
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Next_0: -2932513457500294362
+      exit info_0: -6254325446227268807
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
