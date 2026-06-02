@@ -3,21 +3,63 @@ using UnityEngine.UI;
 
 public class SlotKabel : MonoBehaviour
 {
-    // ID Kabel yang sedang nempel di slot ini sekarang.
-    // -1 artinya kosong, 0 = Putih-Oren, 1 = Oren, dst (sesuaikan standar T568B kamu)
-    public int kabelIDSaatIni = -1; 
-    
-    private Image imageSlot;
+    [Header("Data Kabel")]
+    public int kabelIDSaatIni = -1;
+
+    [Header("Komponen UI")]
+    public Image imageSlot;
+
+    [Header("Database Sprite Kabel")]
+    public Sprite[] daftarSpriteKabel;
 
     void Awake()
     {
-        imageSlot = GetComponent<Image>();
+        if (imageSlot == null)
+        {
+            imageSlot = GetComponent<Image>();
+        }
     }
 
-    // Fungsi untuk mengambil warna slot saat ini (untuk di-copy ke layar utama)
-    public Color GetWarnaSekarang()
+    // =========================================
+    // SET KABEL KE SLOT
+    // =========================================
+    public void SetKabel(int idKabel)
     {
-        if (imageSlot != null) return imageSlot.color;
-        return Color.white;
+        kabelIDSaatIni = idKabel;
+
+        if (idKabel < 0)
+        {
+            imageSlot.sprite = null;
+            imageSlot.color = Color.clear;
+            return;
+        }
+
+        if (idKabel >= daftarSpriteKabel.Length)
+        {
+            Debug.LogWarning("ID kabel melebihi jumlah sprite!");
+            return;
+        }
+
+        imageSlot.sprite = daftarSpriteKabel[idKabel];
+        imageSlot.color = Color.white;
+    }
+
+    // =========================================
+    // AMBIL SPRITE SEKARANG
+    // =========================================
+    public Sprite GetSpriteSekarang()
+    {
+        return imageSlot.sprite;
+    }
+
+    // =========================================
+    // RESET SLOT
+    // =========================================
+    public void ResetSlot()
+    {
+        kabelIDSaatIni = -1;
+
+        imageSlot.sprite = null;
+        imageSlot.color = Color.clear;
     }
 }

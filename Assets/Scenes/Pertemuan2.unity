@@ -244,7 +244,6 @@ GameObject:
   - component: {fileID: 24361401}
   - component: {fileID: 24361403}
   - component: {fileID: 24361404}
-  - component: {fileID: 24361402}
   m_Layer: 5
   m_Name: Putih_Coklat
   m_TagString: Untagged
@@ -271,19 +270,6 @@ RectTransform:
   m_AnchoredPosition: {x: -27.987854, y: -300.99564}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &24361402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24361400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
 --- !u!222 &24361403
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -489,7 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &68755987
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +488,6 @@ GameObject:
   - component: {fileID: 68755991}
   - component: {fileID: 68755990}
   - component: {fileID: 68755988}
-  - component: {fileID: 68755989}
   m_Layer: 5
   m_Name: Oren
   m_TagString: Untagged
@@ -539,19 +525,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &68755989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68755987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
 --- !u!222 &68755990
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -799,7 +772,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950488}
+      - m_Target: {fileID: 130814572}
         m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
         m_MethodName: TombolCekSusunan
         m_Mode: 1
@@ -849,6 +822,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74378173}
   m_CullTransparentMesh: 1
+--- !u!1 &81061181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81061182}
+  m_Layer: 5
+  m_Name: AreaSusunKanan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &81061182
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81061181}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 450341127}
+  - {fileID: 2096801214}
+  - {fileID: 152186969}
+  - {fileID: 2018298420}
+  - {fileID: 118241533}
+  - {fileID: 1792272863}
+  - {fileID: 92183097}
+  - {fileID: 1502922100}
+  - {fileID: 2143440391}
+  - {fileID: 550105465}
+  m_Father: {fileID: 475825424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 107.11746, y: -139.92168}
+  m_SizeDelta: {x: 769.3195, y: -318.1693}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &92183096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92183097}
+  - component: {fileID: 92183100}
+  - component: {fileID: 92183099}
+  - component: {fileID: 92183098}
+  m_Layer: 5
+  m_Name: Putih_Hijau
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &92183097
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92183096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 134.08347, y: -246.93893}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &92183098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92183096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 2
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &92183099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92183096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ea723c405bd72db42b261e6ae10a5641, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &92183100
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92183096}
+  m_CullTransparentMesh: 1
 --- !u!1 &104540634
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +969,6 @@ GameObject:
   - component: {fileID: 104540638}
   - component: {fileID: 104540637}
   - component: {fileID: 104540636}
-  - component: {fileID: 104540635}
   m_Layer: 5
   m_Name: Putih_Oren
   m_TagString: Untagged
@@ -869,19 +976,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &104540635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104540634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &104540636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +988,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
+  idKabel: 0
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &104540637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,6 +1202,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112283078}
   m_CullTransparentMesh: 1
+--- !u!1 &118241532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 118241533}
+  - component: {fileID: 118241536}
+  - component: {fileID: 118241535}
+  - component: {fileID: 118241534}
+  m_Layer: 5
+  m_Name: Biru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &118241533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118241532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -57.966103, y: -246.91893}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &118241534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118241532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 3
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &118241535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118241532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6562a7e5e5402ae41837c6c84124d772, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &118241536
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118241532}
+  m_CullTransparentMesh: 1
 --- !u!1 &130814567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1303,7 @@ GameObject:
   - component: {fileID: 130814568}
   - component: {fileID: 130814571}
   - component: {fileID: 130814570}
-  - component: {fileID: 130814569}
+  - component: {fileID: 130814572}
   m_Layer: 5
   m_Name: 'Slide 3 : Susun Warna (1)'
   m_TagString: Untagged
@@ -1138,10 +1323,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 721968279}
   - {fileID: 1159260543}
   - {fileID: 1474023858}
   - {fileID: 1547861845}
+  - {fileID: 475825424}
   m_Father: {fileID: 2546820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1149,37 +1334,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.090265, y: -0.0049112}
   m_SizeDelta: {x: 1919.8, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &130814569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130814567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fbd5f40febb934984eac32dd5c477b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CekSusunanKabel
-  daftarKabelKiri:
-  - {fileID: 1582587759}
-  - {fileID: 1189306255}
-  - {fileID: 1241059003}
-  - {fileID: 2138765321}
-  - {fileID: 131329933}
-  - {fileID: 1887432024}
-  - {fileID: 1058088095}
-  - {fileID: 2061522466}
-  daftarKabelKanan:
-  - {fileID: 1776279874}
-  - {fileID: 651946829}
-  - {fileID: 24361402}
-  - {fileID: 769242098}
-  - {fileID: 1344535815}
-  - {fileID: 501697810}
-  - {fileID: 1120782700}
-  - {fileID: 68755989}
-  slideManagerUtama: {fileID: 536950486}
 --- !u!114 &130814570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,6 +1372,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130814567}
   m_CullTransparentMesh: 1
+--- !u!114 &130814572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130814567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcd24e765c49de34881fb31488a87c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SusunKabelManager
+  panelUtama: {fileID: 1474023855}
+  panelZoomKiri: {fileID: 1547861844}
+  networkZoomKanan: {fileID: 475825423}
+  previewKiri:
+  - {fileID: 2061522468}
+  - {fileID: 1582587761}
+  - {fileID: 1189306257}
+  - {fileID: 1241059005}
+  - {fileID: 2138765323}
+  - {fileID: 131329935}
+  - {fileID: 1887432026}
+  - {fileID: 1058088097}
+  previewKanan:
+  - {fileID: 68755988}
+  - {fileID: 1776279876}
+  - {fileID: 651946831}
+  - {fileID: 24361404}
+  - {fileID: 769242100}
+  - {fileID: 1344535817}
+  - {fileID: 501697812}
+  - {fileID: 1120782702}
+  spriteKabel:
+  - {fileID: 21300000, guid: ecba78b1aabb3b34ebb186180dbc921d, type: 3}
+  - {fileID: 21300000, guid: fb7a21f8f8f49a5418c850a1afcba730, type: 3}
+  - {fileID: 21300000, guid: ea723c405bd72db42b261e6ae10a5641, type: 3}
+  - {fileID: 21300000, guid: 6562a7e5e5402ae41837c6c84124d772, type: 3}
+  - {fileID: 21300000, guid: 6563e0b66e392424f893065d90512f21, type: 3}
+  - {fileID: 21300000, guid: f04bbd00a11a0ef47946373859e02344, type: 3}
+  - {fileID: 21300000, guid: 6913fd32f6ccad048b1befe39c565336, type: 3}
+  - {fileID: 21300000, guid: 5a75972691def5440b11a5d2bdf6a59f, type: 3}
+  parentKabelKiri: {fileID: 1427999474}
+  parentKabelKanan: {fileID: 81061182}
 --- !u!1 &131329931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,7 +1427,6 @@ GameObject:
   - component: {fileID: 131329932}
   - component: {fileID: 131329934}
   - component: {fileID: 131329935}
-  - component: {fileID: 131329933}
   m_Layer: 5
   m_Name: Hijau
   m_TagString: Untagged
@@ -1256,19 +1453,6 @@ RectTransform:
   m_AnchoredPosition: {x: 92.762695, y: -232.74796}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &131329933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131329931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
 --- !u!222 &131329934
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1395,7 +1579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &146622481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,6 +1717,96 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146622481}
+  m_CullTransparentMesh: 1
+--- !u!1 &152186968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 152186969}
+  - component: {fileID: 152186972}
+  - component: {fileID: 152186971}
+  - component: {fileID: 152186970}
+  m_Layer: 5
+  m_Name: Coklat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &152186969
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152186968}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -250.02817, y: -246.8992}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &152186970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152186968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 7
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &152186971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152186968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5a75972691def5440b11a5d2bdf6a59f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &152186972
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152186968}
   m_CullTransparentMesh: 1
 --- !u!1 &153370399
 GameObject:
@@ -2323,7 +2598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &244776650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,7 +2612,6 @@ GameObject:
   - component: {fileID: 244776654}
   - component: {fileID: 244776653}
   - component: {fileID: 244776652}
-  - component: {fileID: 244776651}
   m_Layer: 5
   m_Name: Oren
   m_TagString: Untagged
@@ -2344,19 +2619,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &244776651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244776650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &244776652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2369,7 +2631,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
+  idKabel: 1
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &244776653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2515,7 +2778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &247359684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,7 +3155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &315774435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,7 +3454,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950488}
+      - m_Target: {fileID: 130814572}
         m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
         m_MethodName: BukaZoomKanan
         m_Mode: 1
@@ -3509,6 +3774,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &450341126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450341127}
+  - component: {fileID: 450341129}
+  - component: {fileID: 450341128}
+  m_Layer: 5
+  m_Name: KabelBawah (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &450341127
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450341126}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7089586, w: 0.7052501}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: -131}
+  m_SizeDelta: {x: 782.7343, y: 1326.8724}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &450341128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450341126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a72bf326f912e964b93f8d880a1d6bca, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &450341129
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450341126}
+  m_CullTransparentMesh: 1
 --- !u!1 &468361271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,7 +4011,6 @@ GameObject:
   - component: {fileID: 472714449}
   - component: {fileID: 472714448}
   - component: {fileID: 472714447}
-  - component: {fileID: 472714446}
   m_Layer: 5
   m_Name: Putih_Biru
   m_TagString: Untagged
@@ -3679,19 +4018,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &472714446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472714445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &472714447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3704,7 +4030,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
+  idKabel: 4
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &472714448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,6 +4089,83 @@ RectTransform:
   m_AnchoredPosition: {x: 230.11731, y: -246.94891}
   m_SizeDelta: {x: 96.0326, y: 1636.9159}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &475825423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 475825424}
+  - component: {fileID: 475825426}
+  - component: {fileID: 475825425}
+  m_Layer: 5
+  m_Name: panelZoomKanan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &475825424
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475825423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 81061182}
+  - {fileID: 1298283164}
+  m_Father: {fileID: 130814568}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &475825425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475825423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &475825426
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475825423}
+  m_CullTransparentMesh: 1
 --- !u!1 &495794597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,7 +4252,6 @@ GameObject:
   - component: {fileID: 501697809}
   - component: {fileID: 501697811}
   - component: {fileID: 501697812}
-  - component: {fileID: 501697810}
   m_Layer: 5
   m_Name: Putih_Hijau
   m_TagString: Untagged
@@ -3875,19 +4278,6 @@ RectTransform:
   m_AnchoredPosition: {x: 147.51398, y: -301.017}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &501697810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501697808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
 --- !u!222 &501697811
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3981,7 +4371,6 @@ GameObject:
   - component: {fileID: 511848799}
   - component: {fileID: 511848798}
   - component: {fileID: 511848797}
-  - component: {fileID: 511848796}
   m_Layer: 5
   m_Name: Putih_Coklat
   m_TagString: Untagged
@@ -3989,19 +4378,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &511848796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511848795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &511848797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,7 +4390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
+  idKabel: 6
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &511848798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4325,7 +4702,6 @@ GameObject:
   - component: {fileID: 536950485}
   - component: {fileID: 536950487}
   - component: {fileID: 536950486}
-  - component: {fileID: 536950488}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -4393,10 +4769,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlideManager
   slides:
-  - {fileID: 920117541}
   - {fileID: 599512434}
   - {fileID: 1386584661}
   - {fileID: 1946523627}
+  - {fileID: 130814567}
   - {fileID: 1308996259}
   - {fileID: 1647227235}
   - {fileID: 531763101}
@@ -4419,63 +4795,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c38a7d2f06883043a222b277960274a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuManager
---- !u!114 &536950488
+--- !u!1 &550105464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 550105465}
+  - component: {fileID: 550105467}
+  - component: {fileID: 550105466}
+  m_Layer: 5
+  m_Name: KabelAtas (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &550105465
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550105464}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7035176, w: 0.7106779}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.42}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80.29767, y: -249.08798}
+  m_SizeDelta: {x: 566.9962, y: 1348.5381}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &550105466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536950481}
+  m_GameObject: {fileID: 550105464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd24e765c49de34881fb31488a87c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SusunKabelManager
-  panelUtama: {fileID: 1474023855}
-  panelZoomKiri: {fileID: 1547861844}
-  panelZoomKanan: {fileID: 721968276}
-  centangKiri: {fileID: 0}
-  centangKanan: {fileID: 0}
-  slotKiriUtama:
-  - {fileID: 1582587761}
-  - {fileID: 1189306257}
-  - {fileID: 1241059005}
-  - {fileID: 2138765323}
-  - {fileID: 131329935}
-  - {fileID: 1887432026}
-  - {fileID: 1058088097}
-  - {fileID: 2061522468}
-  - {fileID: 1822650134}
-  slotKananUtama:
-  - {fileID: 1776279876}
-  - {fileID: 651946831}
-  - {fileID: 24361404}
-  - {fileID: 769242100}
-  - {fileID: 1344535817}
-  - {fileID: 501697812}
-  - {fileID: 1120782702}
-  - {fileID: 68755988}
-  slotKiriZoom:
-  - {fileID: 104540635}
-  - {fileID: 1930908091}
-  - {fileID: 511848796}
-  - {fileID: 1782387638}
-  - {fileID: 1407502254}
-  - {fileID: 1671551803}
-  - {fileID: 472714446}
-  - {fileID: 244776651}
-  slotKananZoom:
-  - {fileID: 1597612564}
-  - {fileID: 1810070417}
-  - {fileID: 1584594300}
-  - {fileID: 1072363080}
-  - {fileID: 1417413210}
-  - {fileID: 2003323297}
-  - {fileID: 1632638273}
-  - {fileID: 757191367}
-  popupEvaluasi: {fileID: 0}
-  teksPesanEvaluasi: {fileID: 0}
-  tombolNextSlide: {fileID: 0}
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: bb18f6769861d7f418913b4fabc30850, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &550105467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550105464}
+  m_CullTransparentMesh: 1
 --- !u!1 &599512434
 GameObject:
   m_ObjectHideFlags: 0
@@ -4683,7 +5077,6 @@ GameObject:
   - component: {fileID: 651946828}
   - component: {fileID: 651946830}
   - component: {fileID: 651946831}
-  - component: {fileID: 651946829}
   m_Layer: 5
   m_Name: Coklat
   m_TagString: Untagged
@@ -4710,19 +5103,6 @@ RectTransform:
   m_AnchoredPosition: {x: -86.4931, y: -300.98926}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &651946829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651946827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
 --- !u!222 &651946830
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5048,83 +5428,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688310603}
   m_CullTransparentMesh: 1
---- !u!1 &721968276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 721968279}
-  - component: {fileID: 721968278}
-  - component: {fileID: 721968277}
-  m_Layer: 5
-  m_Name: panelZoomKanan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &721968277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721968276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &721968278
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721968276}
-  m_CullTransparentMesh: 1
---- !u!224 &721968279
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 721968276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2119812503}
-  - {fileID: 911786340}
-  m_Father: {fileID: 130814568}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &732787076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,7 +5516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &738369600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5306,109 +5610,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738369600}
   m_CullTransparentMesh: 1
---- !u!1 &757191366
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 757191371}
-  - component: {fileID: 757191370}
-  - component: {fileID: 757191369}
-  - component: {fileID: 757191368}
-  - component: {fileID: 757191367}
-  m_Layer: 5
-  m_Name: Oren
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &757191367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757191366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
---- !u!114 &757191368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757191366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
---- !u!114 &757191369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757191366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb7a21f8f8f49a5418c850a1afcba730, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &757191370
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757191366}
-  m_CullTransparentMesh: 1
---- !u!224 &757191371
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757191366}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -442.09552, y: -253.98987}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &769242096
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,7 +5621,6 @@ GameObject:
   - component: {fileID: 769242097}
   - component: {fileID: 769242099}
   - component: {fileID: 769242100}
-  - component: {fileID: 769242098}
   m_Layer: 5
   m_Name: Biru
   m_TagString: Untagged
@@ -5447,19 +5647,6 @@ RectTransform:
   m_AnchoredPosition: {x: 30.514305, y: -301.00287}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &769242098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 769242096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
 --- !u!222 &769242099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5661,7 +5848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &826846986
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,7 +6243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &890824586
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,138 +6320,6 @@ RectTransform:
   m_AnchoredPosition: {x: -129.84, y: 93.04999}
   m_SizeDelta: {x: 1690, y: 960}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &911786339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 911786340}
-  - component: {fileID: 911786343}
-  - component: {fileID: 911786342}
-  - component: {fileID: 911786341}
-  m_Layer: 5
-  m_Name: ButtonSelesaiKanan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &911786340
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911786339}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 721968279}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -719, y: -342.05582}
-  m_SizeDelta: {x: 320.186, y: 60.8656}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &911786341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911786339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 911786342}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 536950488}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
-        m_MethodName: SelesaiKanan
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &911786342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911786339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b6c001852ad38a41986a23f3c49a958, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &911786343
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911786339}
-  m_CullTransparentMesh: 1
 --- !u!1 &920117541
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,100 +6412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fbd5f40febb934984eac32dd5c477b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CekSusunanKabel
-  daftarKabelKiri:
-  - {fileID: 246700814}
-  - {fileID: 1314202137}
-  - {fileID: 1431252973}
-  - {fileID: 818342437}
-  - {fileID: 732787080}
-  - {fileID: 133406295}
-  - {fileID: 2069092355}
-  - {fileID: 1361030565}
-  daftarKabelKanan:
-  - {fileID: 2062745964}
-  - {fileID: 1730653592}
-  - {fileID: 876292531}
-  - {fileID: 294759799}
-  - {fileID: 239235429}
-  - {fileID: 1440794101}
-  - {fileID: 67379579}
-  - {fileID: 1795559420}
-  slideManagerUtama: {fileID: 536950486}
---- !u!1 &923344709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 923344710}
-  - component: {fileID: 923344712}
-  - component: {fileID: 923344711}
-  m_Layer: 5
-  m_Name: KabelBawah (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &923344710
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923344709}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7089586, w: 0.7052501}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.3}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -131}
-  m_SizeDelta: {x: 782.7343, y: 1326.8724}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &923344711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923344709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a72bf326f912e964b93f8d880a1d6bca, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &923344712
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 923344709}
-  m_CullTransparentMesh: 1
 --- !u!1 &1008241946
 GameObject:
   m_ObjectHideFlags: 0
@@ -6747,7 +6710,6 @@ GameObject:
   - component: {fileID: 1058088094}
   - component: {fileID: 1058088096}
   - component: {fileID: 1058088097}
-  - component: {fileID: 1058088095}
   m_Layer: 5
   m_Name: PutihBiru
   m_TagString: Untagged
@@ -6774,19 +6736,6 @@ RectTransform:
   m_AnchoredPosition: {x: 210.86987, y: -232.76077}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1058088095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058088093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
 --- !u!222 &1058088096
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6825,109 +6774,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1072363075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1072363076}
-  - component: {fileID: 1072363079}
-  - component: {fileID: 1072363078}
-  - component: {fileID: 1072363077}
-  - component: {fileID: 1072363080}
-  m_Layer: 5
-  m_Name: Biru
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1072363076
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072363075}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.966103, y: -246.91893}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1072363077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072363075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
---- !u!114 &1072363078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072363075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6562a7e5e5402ae41837c6c84124d772, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1072363079
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072363075}
-  m_CullTransparentMesh: 1
---- !u!114 &1072363080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072363075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1075036017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7426,7 +7272,6 @@ GameObject:
   - component: {fileID: 1120782699}
   - component: {fileID: 1120782701}
   - component: {fileID: 1120782702}
-  - component: {fileID: 1120782700}
   m_Layer: 5
   m_Name: Putih_Biru
   m_TagString: Untagged
@@ -7453,19 +7298,6 @@ RectTransform:
   m_AnchoredPosition: {x: 206.01926, y: -301.02396}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1120782700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120782698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
 --- !u!222 &1120782701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7875,7 +7707,6 @@ GameObject:
   - component: {fileID: 1189306254}
   - component: {fileID: 1189306256}
   - component: {fileID: 1189306257}
-  - component: {fileID: 1189306255}
   m_Layer: 5
   m_Name: Coklat
   m_TagString: Untagged
@@ -7902,19 +7733,6 @@ RectTransform:
   m_AnchoredPosition: {x: -84.41882, y: -232.729}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1189306255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189306253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
 --- !u!222 &1189306256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8271,7 +8089,6 @@ GameObject:
   - component: {fileID: 1241059002}
   - component: {fileID: 1241059004}
   - component: {fileID: 1241059005}
-  - component: {fileID: 1241059003}
   m_Layer: 5
   m_Name: PutihCoklat
   m_TagString: Untagged
@@ -8298,19 +8115,6 @@ RectTransform:
   m_AnchoredPosition: {x: -25.358276, y: -232.73474}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1241059003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241059001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
 --- !u!222 &1241059004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8590,6 +8394,138 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1298283163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298283164}
+  - component: {fileID: 1298283167}
+  - component: {fileID: 1298283166}
+  - component: {fileID: 1298283165}
+  m_Layer: 5
+  m_Name: ButtonSelesaiKanan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1298283164
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298283163}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 475825424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -719, y: -342.05582}
+  m_SizeDelta: {x: 320.186, y: 60.8656}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1298283165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298283163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1298283166}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 130814572}
+        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_MethodName: SelesaiKanan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1298283166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298283163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8b6c001852ad38a41986a23f3c49a958, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1298283167
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298283163}
+  m_CullTransparentMesh: 1
 --- !u!1 &1308996259
 GameObject:
   m_ObjectHideFlags: 0
@@ -8831,7 +8767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &1323140101
 GameObject:
   m_ObjectHideFlags: 0
@@ -9344,7 +9281,6 @@ GameObject:
   - component: {fileID: 1344535814}
   - component: {fileID: 1344535816}
   - component: {fileID: 1344535817}
-  - component: {fileID: 1344535815}
   m_Layer: 5
   m_Name: Hijau
   m_TagString: Untagged
@@ -9371,19 +9307,6 @@ RectTransform:
   m_AnchoredPosition: {x: 89.02234, y: -301.00983}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1344535815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344535813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
 --- !u!222 &1344535816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9528,7 +9451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!114 &1361030566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9938,7 +9862,6 @@ GameObject:
   - component: {fileID: 1407502257}
   - component: {fileID: 1407502256}
   - component: {fileID: 1407502255}
-  - component: {fileID: 1407502254}
   m_Layer: 5
   m_Name: Hijau
   m_TagString: Untagged
@@ -9946,19 +9869,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1407502254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407502253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &1407502255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9971,7 +9881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
+  idKabel: 5
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &1407502256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10029,109 +9940,6 @@ RectTransform:
   m_AnchoredPosition: {x: 38.072235, y: -246.9288}
   m_SizeDelta: {x: 96.0326, y: 1636.9159}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1417413205
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1417413206}
-  - component: {fileID: 1417413209}
-  - component: {fileID: 1417413208}
-  - component: {fileID: 1417413207}
-  - component: {fileID: 1417413210}
-  m_Layer: 5
-  m_Name: Hijau
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1417413206
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417413205}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 38.072235, y: -246.9288}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1417413207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417413205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Hijau
---- !u!114 &1417413208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417413205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f04bbd00a11a0ef47946373859e02344, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1417413209
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417413205}
-  m_CullTransparentMesh: 1
---- !u!114 &1417413210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417413205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1427999473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10265,7 +10073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &1440794097
 GameObject:
   m_ObjectHideFlags: 0
@@ -10354,7 +10163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &1469359286
 GameObject:
   m_ObjectHideFlags: 0
@@ -10566,6 +10376,96 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1502922099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502922100}
+  - component: {fileID: 1502922103}
+  - component: {fileID: 1502922102}
+  - component: {fileID: 1502922101}
+  m_Layer: 5
+  m_Name: Putih_Biru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1502922100
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502922099}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 230.11731, y: -246.94891}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1502922101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502922099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 4
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &1502922102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502922099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6563e0b66e392424f893065d90512f21, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1502922103
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502922099}
+  m_CullTransparentMesh: 1
 --- !u!1 &1512267879
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,7 +10782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1547861845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11116,7 +11016,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950488}
+      - m_Target: {fileID: 130814572}
         m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
         m_MethodName: SelesaiKiri
         m_Mode: 1
@@ -11341,7 +11241,6 @@ GameObject:
   - component: {fileID: 1582587758}
   - component: {fileID: 1582587760}
   - component: {fileID: 1582587761}
-  - component: {fileID: 1582587759}
   m_Layer: 5
   m_Name: PutihOren
   m_TagString: Untagged
@@ -11368,19 +11267,6 @@ RectTransform:
   m_AnchoredPosition: {x: -143.4798, y: -232.72241}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1582587759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1582587757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
 --- !u!222 &1582587760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11419,109 +11305,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1584594295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1584594296}
-  - component: {fileID: 1584594299}
-  - component: {fileID: 1584594298}
-  - component: {fileID: 1584594297}
-  - component: {fileID: 1584594300}
-  m_Layer: 5
-  m_Name: Putih_Coklat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1584594296
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594295}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153.9944, y: -246.90826}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1584594297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihCoklat
---- !u!114 &1584594298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6913fd32f6ccad048b1befe39c565336, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1584594299
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594295}
-  m_CullTransparentMesh: 1
---- !u!114 &1584594300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584594295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1593845398
 GameObject:
   m_ObjectHideFlags: 0
@@ -11677,109 +11460,6 @@ MonoBehaviour:
     mengupas kulit luar kabel"
   komponenTeksTMP: {fileID: 1593845400}
   jedaPerHuruf: 0.02
---- !u!1 &1597612559
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1597612560}
-  - component: {fileID: 1597612563}
-  - component: {fileID: 1597612562}
-  - component: {fileID: 1597612561}
-  - component: {fileID: 1597612564}
-  m_Layer: 5
-  m_Name: Putih_Oren
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1597612560
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597612559}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.0621, y: -246.88869}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1597612561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597612559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
---- !u!114 &1597612562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597612559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ecba78b1aabb3b34ebb186180dbc921d, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1597612563
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597612559}
-  m_CullTransparentMesh: 1
---- !u!114 &1597612564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597612559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1604807572
 GameObject:
   m_ObjectHideFlags: 0
@@ -11855,109 +11535,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1632638268
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1632638269}
-  - component: {fileID: 1632638272}
-  - component: {fileID: 1632638271}
-  - component: {fileID: 1632638270}
-  - component: {fileID: 1632638273}
-  m_Layer: 5
-  m_Name: Putih_Biru
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1632638269
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632638268}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230.11731, y: -246.94891}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1632638270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632638268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
---- !u!114 &1632638271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632638268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6563e0b66e392424f893065d90512f21, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1632638272
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632638268}
-  m_CullTransparentMesh: 1
---- !u!114 &1632638273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632638268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1647227235
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,7 +11641,6 @@ GameObject:
   - component: {fileID: 1671551806}
   - component: {fileID: 1671551805}
   - component: {fileID: 1671551804}
-  - component: {fileID: 1671551803}
   m_Layer: 5
   m_Name: Putih_Hijau
   m_TagString: Untagged
@@ -12072,19 +11648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1671551803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671551802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &1671551804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12097,7 +11660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
+  idKabel: 2
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &1671551805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12440,81 +12004,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699431427}
   m_CullTransparentMesh: 1
---- !u!1 &1700909978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700909979}
-  - component: {fileID: 1700909981}
-  - component: {fileID: 1700909980}
-  m_Layer: 5
-  m_Name: KabelAtas (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1700909979
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700909978}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7035176, w: 0.7106779}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.42}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80.29767, y: -249.08798}
-  m_SizeDelta: {x: 566.9962, y: 1348.5381}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1700909980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700909978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb18f6769861d7f418913b4fabc30850, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1700909981
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700909978}
-  m_CullTransparentMesh: 1
 --- !u!1 &1712705904
 GameObject:
   m_ObjectHideFlags: 0
@@ -12773,7 +12262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &1747950357
 GameObject:
   m_ObjectHideFlags: 0
@@ -13072,7 +12562,6 @@ GameObject:
   - component: {fileID: 1776279873}
   - component: {fileID: 1776279875}
   - component: {fileID: 1776279876}
-  - component: {fileID: 1776279874}
   m_Layer: 5
   m_Name: Putih_Oren
   m_TagString: Untagged
@@ -13099,19 +12588,6 @@ RectTransform:
   m_AnchoredPosition: {x: -144.99857, y: -300.98193}
   m_SizeDelta: {x: 58.5046, y: 1140.5936}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1776279874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776279872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
 --- !u!222 &1776279875
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13162,7 +12638,6 @@ GameObject:
   - component: {fileID: 1782387641}
   - component: {fileID: 1782387640}
   - component: {fileID: 1782387639}
-  - component: {fileID: 1782387638}
   m_Layer: 5
   m_Name: Biru
   m_TagString: Untagged
@@ -13170,19 +12645,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1782387638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782387637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &1782387639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13195,7 +12657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
+  idKabel: 3
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &1782387640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13253,6 +12716,96 @@ RectTransform:
   m_AnchoredPosition: {x: -57.966103, y: -246.91893}
   m_SizeDelta: {x: 96.0326, y: 1636.9159}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1792272862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1792272863}
+  - component: {fileID: 1792272866}
+  - component: {fileID: 1792272865}
+  - component: {fileID: 1792272864}
+  m_Layer: 5
+  m_Name: Hijau
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1792272863
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792272862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 38.072235, y: -246.9288}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1792272864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792272862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 5
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &1792272865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792272862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f04bbd00a11a0ef47946373859e02344, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1792272866
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792272862}
+  m_CullTransparentMesh: 1
 --- !u!1 &1795559419
 GameObject:
   m_ObjectHideFlags: 0
@@ -13284,7 +12837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!114 &1795559421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13342,109 +12896,6 @@ RectTransform:
   m_AnchoredPosition: {x: -273.09906, y: -385.54202}
   m_SizeDelta: {x: 78.054, y: 1277.518}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1810070412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1810070413}
-  - component: {fileID: 1810070416}
-  - component: {fileID: 1810070415}
-  - component: {fileID: 1810070414}
-  - component: {fileID: 1810070417}
-  m_Layer: 5
-  m_Name: Coklat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1810070413
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810070412}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250.02817, y: -246.8992}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1810070414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810070412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
---- !u!114 &1810070415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810070412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5a75972691def5440b11a5d2bdf6a59f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1810070416
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810070412}
-  m_CullTransparentMesh: 1
---- !u!114 &1810070417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810070412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &1813533402
 GameObject:
   m_ObjectHideFlags: 0
@@ -14281,7 +13732,6 @@ GameObject:
   - component: {fileID: 1887432023}
   - component: {fileID: 1887432025}
   - component: {fileID: 1887432026}
-  - component: {fileID: 1887432024}
   m_Layer: 5
   m_Name: PutihHijau
   m_TagString: Untagged
@@ -14308,19 +13758,6 @@ RectTransform:
   m_AnchoredPosition: {x: 151.80963, y: -232.75427}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1887432024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887432022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
 --- !u!222 &1887432025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14521,7 +13958,6 @@ GameObject:
   - component: {fileID: 1930908094}
   - component: {fileID: 1930908093}
   - component: {fileID: 1930908092}
-  - component: {fileID: 1930908091}
   m_Layer: 5
   m_Name: Coklat
   m_TagString: Untagged
@@ -14529,19 +13965,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1930908091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1930908090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!114 &1930908092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14554,7 +13977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Coklat
+  idKabel: 7
+  canvasUtama: {fileID: 2546819}
 --- !u!114 &1930908093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14826,109 +14250,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984314976}
   m_CullTransparentMesh: 1
---- !u!1 &2003323292
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003323293}
-  - component: {fileID: 2003323296}
-  - component: {fileID: 2003323295}
-  - component: {fileID: 2003323294}
-  - component: {fileID: 2003323297}
-  m_Layer: 5
-  m_Name: Putih_Hijau
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2003323293
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003323292}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2119812503}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 134.08347, y: -246.93893}
-  m_SizeDelta: {x: 96.0326, y: 1636.9159}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2003323294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003323292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihHijau
---- !u!114 &2003323295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003323292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ea723c405bd72db42b261e6ae10a5641, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2003323296
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003323292}
-  m_CullTransparentMesh: 1
---- !u!114 &2003323297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003323292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf321d5261114614688a193a14227010, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlotKabel
-  kabelIDSaatIni: -1
 --- !u!1 &2009823959
 GameObject:
   m_ObjectHideFlags: 0
@@ -15021,7 +14342,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950488}
+      - m_Target: {fileID: 130814572}
         m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
         m_MethodName: BukaZoomKiri
         m_Mode: 1
@@ -15070,6 +14391,96 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009823959}
+  m_CullTransparentMesh: 1
+--- !u!1 &2018298419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018298420}
+  - component: {fileID: 2018298423}
+  - component: {fileID: 2018298422}
+  - component: {fileID: 2018298421}
+  m_Layer: 5
+  m_Name: Putih_Coklat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2018298420
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018298419}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -153.9944, y: -246.90826}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2018298421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018298419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 6
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &2018298422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018298419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6913fd32f6ccad048b1befe39c565336, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2018298423
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018298419}
   m_CullTransparentMesh: 1
 --- !u!1 &2029311786
 GameObject:
@@ -15177,7 +14588,6 @@ GameObject:
   - component: {fileID: 2061522465}
   - component: {fileID: 2061522467}
   - component: {fileID: 2061522468}
-  - component: {fileID: 2061522466}
   m_Layer: 5
   m_Name: Oren
   m_TagString: Untagged
@@ -15204,19 +14614,6 @@ RectTransform:
   m_AnchoredPosition: {x: -202.53992, y: -237.2366}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2061522466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061522464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Oren
 --- !u!222 &2061522467
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15343,7 +14740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihOren
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &2068427257
 GameObject:
   m_ObjectHideFlags: 0
@@ -15581,7 +14979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: PutihBiru
+  idKabel: 0
+  canvasUtama: {fileID: 0}
 --- !u!1 &2070801064
 GameObject:
   m_ObjectHideFlags: 0
@@ -15949,7 +15348,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &2119812502
+--- !u!1 &2096801213
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15957,43 +15356,88 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2119812503}
+  - component: {fileID: 2096801214}
+  - component: {fileID: 2096801217}
+  - component: {fileID: 2096801216}
+  - component: {fileID: 2096801215}
   m_Layer: 5
-  m_Name: AreaSusunKanan1
+  m_Name: Putih_Oren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2119812503
+--- !u!224 &2096801214
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2119812502}
+  m_GameObject: {fileID: 2096801213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 923344710}
-  - {fileID: 1597612560}
-  - {fileID: 1810070413}
-  - {fileID: 1584594296}
-  - {fileID: 1072363076}
-  - {fileID: 1417413206}
-  - {fileID: 2003323293}
-  - {fileID: 1632638269}
-  - {fileID: 757191371}
-  - {fileID: 1700909979}
-  m_Father: {fileID: 721968279}
+  m_Children: []
+  m_Father: {fileID: 81061182}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152, y: -151.43}
-  m_SizeDelta: {x: 679.5543, y: -295.1527}
+  m_AnchoredPosition: {x: -346.0621, y: -246.88869}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2096801215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096801213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 0
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &2096801216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096801213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ecba78b1aabb3b34ebb186180dbc921d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2096801217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096801213}
+  m_CullTransparentMesh: 1
 --- !u!1 &2126082135
 GameObject:
   m_ObjectHideFlags: 0
@@ -16274,7 +15718,6 @@ GameObject:
   - component: {fileID: 2138765320}
   - component: {fileID: 2138765322}
   - component: {fileID: 2138765323}
-  - component: {fileID: 2138765321}
   m_Layer: 5
   m_Name: Biru
   m_TagString: Untagged
@@ -16301,19 +15744,6 @@ RectTransform:
   m_AnchoredPosition: {x: 33.699158, y: -232.74146}
   m_SizeDelta: {x: 59.0599, y: 1040.5673}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2138765321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2138765319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
-  namaWarna: Biru
 --- !u!222 &2138765322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16352,6 +15782,96 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2143440390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143440391}
+  - component: {fileID: 2143440394}
+  - component: {fileID: 2143440393}
+  - component: {fileID: 2143440392}
+  m_Layer: 5
+  m_Name: Oren
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2143440391
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143440390}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81061182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -442.09552, y: -253.98987}
+  m_SizeDelta: {x: 96.0326, y: 1636.9159}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2143440392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143440390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab093efe13066458c4ca5b664cb385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GeserKabel
+  idKabel: 1
+  canvasUtama: {fileID: 2546819}
+--- !u!114 &2143440393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143440390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: fb7a21f8f8f49a5418c850a1afcba730, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2143440394
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143440390}
+  m_CullTransparentMesh: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
