@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System; // WAJIB DITAMBAHKAN UNTUK FUNGSI SORTING
+using System;
+using System.Collections.Generic;
 
 public class SusunKabelManager : MonoBehaviour
 {
     [Header("Panel")]
     public GameObject panelUtama;
     public GameObject panelZoomKiri;
-    public GameObject networkZoomKanan; // Menyesuaikan nama panel zoom kanan Anda
+    public GameObject networkZoomKanan; 
 
     [Header("Preview Panel Utama")]
     public Image[] previewKiri;
@@ -20,39 +21,121 @@ public class SusunKabelManager : MonoBehaviour
     public Transform parentKabelKiri;
     public Transform parentKabelKanan;
 
-    private readonly int[] urutanBenar =
+    private readonly int[] urutanBenar = { 0, 1, 2, 3, 4, 5, 6, 7 };
+
+    void OnEnable()
     {
-        0, // putih oren
-        1, // oren
-        2, // putih hijau
-        3, // biru
-        4, // putih biru
-        5, // hijau
-        6, // putih coklat
-        7  // coklat
-    };
+        if (panelUtama != null) panelUtama.SetActive(true);
+        if (panelZoomKiri != null) panelZoomKiri.SetActive(false);
+        if (networkZoomKanan != null) networkZoomKanan.SetActive(false);
 
-    // =====================================
-    // FUNGSI UTAMA: SORTING BERDASARKAN POSISI X
-    // =====================================
-   GeserKabel[] DapatkanKabelBerurutan(Transform parentZoom)
-    {
-        // Mengambil semua komponen GeserKabel yang ada di dalam parent zoom
-        GeserKabel[] daftarKabel = parentZoom.GetComponentsInChildren<GeserKabel>();
+        // Langsung acak warna kabelnya saja saat masuk slide
+        AcakUrutanKabelWarnaSaja(parentKabelKiri);
+        AcakUrutanKabelWarnaSaja(parentKabelKanan);
 
-        // SEBELUMNYA: kabelA.GetComponent<RectTransform>().anchoredPosition.x
-        // SEKARANG: Ganti ke transform.position.x agar 100% akurat dari kiri ke kanan 
-        // tanpa memedulikan perbedaan Anchor atau Pivot di UI
-        Array.Sort(daftarKabel, (kabelA, kabelB) => 
-            kabelA.transform.position.x.CompareTo(kabelB.transform.position.x)
-        );
-
-        return daftarKabel;
+        PerbaruiSemuaPreviewUtama();
     }
 
-    // =========================
-    // PANEL NAVIGATION
-    // =========================
+    public void ResetGameKeSemula()
+    {
+        AcakUrutanKabelWarnaSaja(parentKabelKiri);
+        AcakUrutanKabelWarnaSaja(parentKabelKanan);
+        PerbaruiSemuaPreviewUtama();
+    }
+
+    // =========================================================================
+    // LOGIK BARU: HANYA MENGACAK KABEL BERWARNA (KABEL ATAS & BAWAH TIDAK IKUT)
+    // =========================================================================
+    void AcakUrutanKabelWarnaSaja(Transform parentZoom)
+    {
+        if (parentZoom == null) return;
+
+        // 1. Ambil semua anak objek yang BENAR-BENAR merupakan komponen GeserKabel
+        GeserKabel[] semuaKabel = parentZoom.GetComponentsInChildren<GeserKabel>(true);
+        
+        List<GeserKabel> listKabelWarna = new List<GeserKabel>();
+        List<Vector2> listPosisiKabelWarnaAsli = new List<Vector2>(); // <-- Nama variabel yang benar
+
+        // FILTER: Pilah objek. Pastikan KabelBawah / KabelAtas tidak ikut masuk hitungan acak
+        foreach (GeserKabel k in semuaKabel)
+        {
+            // Deteksi berdasarkan nama objek bawaan di Hierarchy agar tidak salah saring
+            if (k.name.Contains("KabelBawah") || k.name.Contains("KabelAtas"))
+            {
+                continue; // Skip, jangan sentuh objek pelindung ini!
+            }
+            listKabelWarna.Add(k);
+        }
+
+        if (listKabelWarna.Count == 0) return;
+
+        // 2. Urutkan koordinat X asli kabel warna dari kiri ke kanan sebelum dikocok
+        listKabelWarna.Sort((a, b) => a.GetComponent<RectTransform>().anchoredPosition.x.CompareTo(b.GetComponent<RectTransform>().anchoredPosition.x));
+        
+        foreach (GeserKabel kabel in listKabelWarna)
+        {
+            listPosisiKabelWarnaAsli.Add(kabel.GetComponent<RectTransform>().anchoredPosition);
+        }
+
+        // 3. Kocok urutan list kabel warna saja (Fisher-Yates Shuffle)
+        System.Random rng = new System.Random();
+        int n = listKabelWarna.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            GeserKabel value = listKabelWarna[k];
+            listKabelWarna[k] = listKabelWarna[n];
+            listKabelWarna[n] = value;
+        }
+
+        // 4. Pasangkan kabel warna yang sudah acak ke koordinat posisi asli tadi
+        for (int i = 0; i < listKabelWarna.Count; i++)
+        {
+            RectTransform rt = listKabelWarna[i].GetComponent<RectTransform>();
+            if (rt != null)
+            {
+                // Berikan koordinat X acak, posisi Y tetap aman mengunci
+                rt.anchoredPosition = listPosisiKabelWarnaAsli[i];
+                
+                // 🔥 FIX DI SINI: Sekarang nama variabel sudah disamakan agar tidak error lagi!
+                listKabelWarna[i].PerbaruiPosisiAwalSaatIni(listPosisiKabelWarnaAsli[i]);
+            }
+        }
+
+        // 5. Susun ulang Sibling Index khusus kabel warna agar urutan Hierarchy-nya sinkron pas di-Sort X position
+        int indeksMulai = 1; // Mulai dari indeks 1 (asumsi urutan ke-0 diisi KabelBawah)
+        for (int i = 0; i < listKabelWarna.Count; i++)
+        {
+            listKabelWarna[i].transform.SetSiblingIndex(indeksMulai + i);
+        }
+    }
+
+    public void PerbaruiSemuaPreviewUtama()
+    {
+        SimpanPreview(parentKabelKiri, previewKiri);
+        SimpanPreview(parentKabelKanan, previewKanan);
+    }
+
+    GeserKabel[] DapatkanKabelBerurutan(Transform parentZoom)
+    {
+        // Ambil semua komponen GeserKabel, bersihkan dari objek KabelAtas/KabelBawah agar tidak merusak index validasi
+        GeserKabel[] semua = parentZoom.GetComponentsInChildren<GeserKabel>();
+        List<GeserKabel> validKabel = new List<GeserKabel>();
+
+        foreach (GeserKabel k in semua)
+        {
+            if (!k.name.Contains("KabelBawah") && !k.name.Contains("KabelAtas"))
+            {
+                validKabel.Add(k);
+            }
+        }
+
+        validKabel.Sort((kabelA, kabelB) => 
+            kabelA.transform.position.x.CompareTo(kabelB.transform.position.x)
+        );
+        return validKabel.ToArray();
+    }
 
     public void BukaZoomKiri()
     {
@@ -80,44 +163,28 @@ public class SusunKabelManager : MonoBehaviour
         panelUtama.SetActive(true);
     }
 
-    // =========================
-    // SAVE PREVIEW (SINKRONISASI WARNA)
-    // =========================
-
     void SimpanPreview(Transform parentZoom, Image[] preview)
     {
-        // Ambil list kabel yang sudah berurutan dari kiri ke kanan
+        if (parentZoom == null || preview == null) return;
+
         GeserKabel[] kabelTerurut = DapatkanKabelBerurutan(parentZoom);
 
         for (int i = 0; i < kabelTerurut.Length; i++)
         {
-            if (i >= preview.Length)
-            {
-                Debug.LogWarning("Preview kurang dari jumlah kabel!");
-                return;
-            }
+            if (i >= preview.Length) return;
 
             GeserKabel kabel = kabelTerurut[i];
+            if (kabel.idKabel < 0 || kabel.idKabel >= spriteKabel.Length) continue;
 
-            // 🔥 LOG DETEKTIF: MENGECEK APAKAH ELEMEN DI INSPECTOR SUDAH SESUAI
-            Debug.Log($"[SINKRON] Kabel Zoom urutan ke-{i} (Nama: {kabel.gameObject.name}) " +
-                      $"dimasukkan ke Preview Utama Element ke-{i} (Nama UI di Inspector: {preview[i].gameObject.name})");
-
-            // Validasi ID Sprite Kabel
-            if (kabel.idKabel < 0 || kabel.idKabel >= spriteKabel.Length)
+            if (preview[i] != null)
             {
-                Debug.LogWarning("ID kabel invalid!");
-                continue;
+                preview[i].sprite = spriteKabel[kabel.idKabel];
+                Color c = preview[i].color;
+                c.a = 1f; 
+                preview[i].color = c;
             }
-
-            // Ubah gambar preview di panel utama
-            preview[i].sprite = spriteKabel[kabel.idKabel];
         }
     }
-
-    // =========================
-    // CEK SUSUNAN AKHIR
-    // =========================
 
     public void TombolCekSusunan()
     {
@@ -127,8 +194,6 @@ public class SusunKabelManager : MonoBehaviour
         if (kiriBenar && kananBenar)
         {
             Debug.Log("BENAR - STRAIGHT THROUGH");
-            
-            // Panggil popup selesai dari SlideManager kamu di sini jika berhasil
             SlideManager sm = FindFirstObjectByType<SlideManager>();
             if (sm != null) sm.TampilkanPopupSelesai();
         }
@@ -140,20 +205,16 @@ public class SusunKabelManager : MonoBehaviour
 
     bool Validasi(Transform parent)
     {
-        // Ambil list kabel terurut dari kiri ke kanan
         GeserKabel[] kabelTerurut = DapatkanKabelBerurutan(parent);
-
         if (kabelTerurut.Length == 0) return false;
 
         for (int i = 0; i < kabelTerurut.Length; i++)
         {
-            // Jika ada satu saja ID kabel yang tidak sesuai dengan urutanBenar, kembalikan salah
             if (kabelTerurut[i].idKabel != urutanBenar[i])
             {
                 return false;
             }
         }
-
         return true;
     }
 }

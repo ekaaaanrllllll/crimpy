@@ -54,4 +54,25 @@ public class TransisiLanTester : MonoBehaviour
         
         Debug.Log("Transisi Selesai! Kabel siap di-drag ke bawah.");
     }
+
+    // 🔥 FUNGSI RESET UNTUK RETRY
+    public void ResetTransisiLanTester()
+    {
+        StopAllCoroutines(); // Hentikan proses Fade jika sedang berjalan
+
+        // Kembalikan tampilan awal: OverView aktif (1), ReadyView mati (0)
+        if (overView != null)
+        {
+            overView.gameObject.SetActive(true);
+            overView.alpha = 1f;
+        }
+
+        if (readyView != null)
+        {
+            readyView.gameObject.SetActive(false);
+            readyView.alpha = 0f;
+        }
+
+        Debug.Log("CONSOLE: Tampilan Transisi LAN Tester dikembalikan ke awal!");
+    }
 }

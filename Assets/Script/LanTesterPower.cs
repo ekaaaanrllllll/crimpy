@@ -124,4 +124,26 @@ public class LanTesterPower : MonoBehaviour
         if(slidingCoroutine != null) StopCoroutine(slidingCoroutine);
         Awake();
     }
+
+    // 🔥 FUNGSI RESET UNTUK RETRY
+    public void ResetLanTesterPower()
+    {
+        // Hentikan semua animasi geser atau kedip yang sedang berjalan
+        if (blinkingCoroutine != null) StopCoroutine(blinkingCoroutine);
+        if (slidingCoroutine != null) StopCoroutine(slidingCoroutine);
+
+        isPowerOn = false;
+        isKabelPlugged = false; // Set kembali ke kondisi kabel belum dicolok
+
+        // Paksa saklar kembali ke posisi koordinat OFF secara instan
+        if (switchThumb != null)
+        {
+            switchThumb.anchoredPosition = new Vector2(posX_Off, switchThumb.anchoredPosition.y);
+        }
+
+        // Matikan LED indikator merah
+        SetLEDAlpha(0f);
+        
+        Debug.Log("CONSOLE: LanTesterPower berhasil di-reset ke posisi OFF!");
+    }
 }

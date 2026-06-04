@@ -19,12 +19,33 @@ public class CrimpSceneManager : MonoBehaviour
 
     void Start()
     {
-        // Pastikan tampilan awal saat game jalan
+        ResetTampilanAwal();
+    }
+
+    // 🔥 OTOMATIS JALAN SAAT TOMBOL RETRY DIKLIK (KARENA SLIDE DI SETACTIVE TRUE)
+    void OnEnable()
+    {
+        ResetTampilanAwal();
+
+        // Cari dan reset script DragKabel yang ada di slide ini
+        DragKabel scriptDrag = GetComponentInChildren<DragKabel>(true);
+        if (scriptDrag != null) scriptDrag.ResetDragKabel();
+
+        // Cari dan reset script AksiCrimping yang ada di slide ini
+        AksiCrimping scriptTang = GetComponentInChildren<AksiCrimping>(true);
+        if (scriptTang != null) scriptTang.ResetAksiCrimping();
+    }
+
+    void ResetTampilanAwal()
+    {
+        isZoomed = false;
+        StopAllCoroutines(); // Hentikan coroutine transisi jika masih berjalan
+
         if (overviewGroup != null)
         {
             overviewGroup.gameObject.SetActive(true);
             overviewGroup.alpha = 1f;
-            overviewGroup.transform.localScale = Vector3.one; // Ukuran normal (1,1,1)
+            overviewGroup.transform.localScale = Vector3.one; 
         }
 
         if (closeUpGroup != null)
@@ -34,7 +55,6 @@ public class CrimpSceneManager : MonoBehaviour
         }
     }
 
-    // Fungsi ini yang dipanggil oleh tombol area klik kamu
     public void RequestZoomToCrimp()
     {
         if (isZoomed) return;
@@ -44,7 +64,6 @@ public class CrimpSceneManager : MonoBehaviour
 
     IEnumerator AnimasiZoomDanMorph()
     {
-        // 1. Nyalakan panel close-up (tapi masih transparan / alpha 0)
         closeUpGroup.gameObject.SetActive(true);
         closeUpGroup.alpha = 0f;
 
@@ -53,29 +72,22 @@ public class CrimpSceneManager : MonoBehaviour
 
         float waktu = 0f;
 
-        // 2. Proses Transisi (Zoom + Fade)
         while (waktu < durasiTransisi)
         {
             waktu += Time.deltaTime;
-            // SmoothStep bikin gerakan melambat di akhir, jadi keliatan lebih natural
             float t = Mathf.SmoothStep(0f, 1f, waktu / durasiTransisi); 
 
-            // Efek Overview: Membesar (nge-zoom) dan pelan-pelan menghilang
             overviewGroup.transform.localScale = Vector3.Lerp(awalScaleOverview, targetScaleOverview, t);
             overviewGroup.alpha = Mathf.Lerp(1f, 0f, t);
-
-            // Efek CloseUp: Pelan-pelan muncul
             closeUpGroup.alpha = Mathf.Lerp(0f, 1f, t);
 
             yield return null;
         }
 
-        // 3. Rapikan setelah transisi selesai
-        overviewGroup.gameObject.SetActive(false); // Matikan yang lama
-        overviewGroup.alpha = 1f; // Kembalikan ke normal
-        overviewGroup.transform.localScale = Vector3.one; // Kembalikan ukurannya
-
-        closeUpGroup.alpha = 1f; // Pastikan yang baru muncul 100%
+        overviewGroup.gameObject.SetActive(false); 
+        overviewGroup.alpha = 1f; 
+        overviewGroup.transform.localScale = Vector3.one; 
+        closeUpGroup.alpha = 1f; 
         
         Debug.Log("Zoom selesai! Sekarang di tampilan Close-Up.");
     }

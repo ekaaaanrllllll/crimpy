@@ -1,34 +1,68 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Wajib ditambahkan untuk fungsi Drag UI
+using UnityEngine.EventSystems;
 
 public class PasangRJ45 : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     [Header("Target & Jarak")]
-    public RectTransform targetAdapterRJ45; // Tempat konektor RJ45-nya
-    public float jarakSnap = 50f; // Seberapa dekat sampai kabel otomatis masuk
+    public RectTransform targetAdapterRJ45; 
+    public float jarakSnap = 50f; 
+
+    [Header("Pengaturan Reset (Wajib Diisi)")]
+    [SerializeField] private bool gunakanPosisiResetManual = true; // Kita buat default-nya true bos
+    [SerializeField] private Vector2 posisiResetManual = new Vector2(-954f, -6.5f); // Sesuai koordinat gambar 2 abang
 
     private RectTransform rectKabel;
     private Canvas canvas;
     private Vector2 posisiAwal;
     private bool sudahTerpasang = false;
 
-    void Start()
+    void Awake()
     {
         rectKabel = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        posisiAwal = rectKabel.anchoredPosition; // Simpan posisi awal kabel
     }
+
+    // 🔥 KUNCI UTAMA: Berjalan otomatis setiap kali slide di-retry / diaktifkan kembali
+    void OnEnable()
+    {
+        ResetKabel();
+    }
+
+    // ==========================================
+    // --- FUNGSI RESET UNTUK TOMBOL RETRY ---
+    // ==========================================
+    public void ResetKabel()
+    {
+        sudahTerpasang = false;
+        
+        // Pastikan komponen rectKabel sudah terdefinisi
+        if (rectKabel == null) rectKabel = GetComponent<RectTransform>();
+
+        if (rectKabel != null)
+        {
+            // Paksa posisi kabel melompat ke posisi reset manual (kiri luar) tiap kali reset/enable
+            if (gunakanPosisiResetManual)
+            {
+                rectKabel.anchoredPosition = posisiResetManual;
+            }
+            else
+            {
+                rectKabel.anchoredPosition = posisiAwal;
+            }
+        }
+        
+        Debug.Log("Sistem OnEnable/Retry mendeteksi: Kabel RJ45 berhasil dipulangkan ke kiri luar!");
+    }
+    // ==========================================
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Kalau sudah terpasang, kabel gak bisa ditarik lagi
         if (sudahTerpasang) return; 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (sudahTerpasang) return;
-        // Menggeser kabel mengikuti mouse/jari
         rectKabel.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
@@ -36,29 +70,23 @@ public class PasangRJ45 : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDr
     {
         if (sudahTerpasang) return;
 
-        // UBAH BAGIAN INI: Gunakan .position (posisi global/layar) bukan .anchoredPosition
         float jarak = Vector2.Distance(rectKabel.position, targetAdapterRJ45.position);
 
         if (jarak < jarakSnap)
         {
-            // Jika sudah cukup dekat, kunci posisinya
             rectKabel.position = targetAdapterRJ45.position; 
             sudahTerpasang = true;
             Debug.Log("Kabel berhasil masuk ke RJ45!");
             
-            // ==========================================
-            // --- KODE POPUP DITAMBAHKAN DI SINI BOS ---
-            // ==========================================
             if (FindFirstObjectByType<SlideManager>() != null)
             {
                 FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
             }
-            // ==========================================
         }
         else
         {
-            // Jika dilepas tapi masih jauh, kembalikan kabel ke posisi awal
-            rectKabel.anchoredPosition = posisiAwal;
+            // Jika dilepas sembarangan, balikkan ke posisi reset manual
+            rectKabel.anchoredPosition = gunakanPosisiResetManual ? posisiResetManual : posisiAwal;
         }
     }
 }

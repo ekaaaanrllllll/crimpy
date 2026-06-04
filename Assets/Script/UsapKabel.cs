@@ -15,9 +15,20 @@ public class UsapKabel : MonoBehaviour, IDragHandler
     private float usapanSaatIni = 0f;
     private bool sudahLurus = false;
 
-    void Start()
+    // OTOMATIS JALAN TIAP KALI TOMBOL RETRY DIKLIK (KARENA SLIDE DI SETACTIVE TRUE)
+    void OnEnable()
     {
-        // Pastikan di awal game: kabel lurus ada tapi transparan (Alpha = 0)
+        // Reset status data usapan
+        usapanSaatIni = 0f;
+        sudahLurus = false;
+
+        // Kembalikan area usap agar bisa mendeteksi sentuhan lagi
+        if (GetComponent<Image>() != null)
+        {
+            GetComponent<Image>().raycastTarget = true; 
+        }
+
+        // Pastikan kabel lurus kembali transparan (Alpha = 0)
         if (kabelLurus != null)
         {
             Color c = kabelLurus.color;
@@ -26,22 +37,20 @@ public class UsapKabel : MonoBehaviour, IDragHandler
             kabelLurus.gameObject.SetActive(true); 
         }
         
-        // Pastikan kabel pilin terlihat utuh (Alpha = 1)
+        // Pastikan kabel pilin kembali terlihat utuh (Alpha = 1) dan aktif
         if (kabelPilin != null)
         {
+            kabelPilin.gameObject.SetActive(true);
             Color c = kabelPilin.color;
             c.a = 1f;
             kabelPilin.color = c;
-            kabelPilin.gameObject.SetActive(true);
         }
     }
 
-    // Fungsi ini otomatis jalan pas area ini digesek/diusap mouse/jari
     public void OnDrag(PointerEventData eventData)
     {
-        if (sudahLurus) return; // Kalau udah lurus, ga usah hitung usapan lagi
+        if (sudahLurus) return;
 
-        // Tambahkan jarak usapan (magnitude dari pergerakan mouse/jari)
         usapanSaatIni += eventData.delta.magnitude;
 
         if (usapanSaatIni >= butuhBerapaUsapan)
@@ -49,13 +58,11 @@ public class UsapKabel : MonoBehaviour, IDragHandler
             sudahLurus = true;
             StartCoroutine(ProsesFadeKabel());
             
-            // Lapor ke manajer kalau kabel warna ini udah beres!
             if (managerUtama != null)
             {
                 managerUtama.TambahKabelLurus();
             }
 
-            // Matikan area usap ini biar ga menghalangi kabel di bawahnya
             if (GetComponent<Image>() != null)
             {
                 GetComponent<Image>().raycastTarget = false; 
@@ -66,7 +73,7 @@ public class UsapKabel : MonoBehaviour, IDragHandler
     // Efek Transisi Menyilang (Pilin menghilang, Lurus Muncul)
     IEnumerator ProsesFadeKabel()
     {
-        float durasiFade = 0.5f; // Berapa detik proses perubahannya
+        float durasiFade = 0.5f;
         float waktuBerjalan = 0f;
 
         Color warnaPilin = kabelPilin.color;
@@ -79,21 +86,27 @@ public class UsapKabel : MonoBehaviour, IDragHandler
 
             // Pilin perlahan hilang (1 ke 0)
             warnaPilin.a = Mathf.Lerp(1f, 0f, alpha);
-            kabelPilin.color = warnaPilin;
+            if (kabelPilin != null) kabelPilin.color = warnaPilin;
 
             // Lurus perlahan muncul (0 ke 1)
             warnaLurus.a = Mathf.Lerp(0f, 1f, alpha);
-            kabelLurus.color = warnaLurus;
+            if (kabelLurus != null) kabelLurus.color = warnaLurus;
 
             yield return null;
         }
 
         // Pastikan nilai akhir sempurna (biar ga nge-bug transparan setengah)
         warnaPilin.a = 0f;
-        kabelPilin.color = warnaPilin;
-        kabelPilin.gameObject.SetActive(false); // Matikan objek pilin selamanya
+        if (kabelPilin != null)
+        {
+            kabelPilin.color = warnaPilin;
+            kabelPilin.gameObject.SetActive(false); // Matikan objek pilin selamanya
+        }
 
         warnaLurus.a = 1f;
-        kabelLurus.color = warnaLurus;
+        if (kabelLurus != null)
+        {
+            kabelLurus.color = warnaLurus;
+        }
     }
 }

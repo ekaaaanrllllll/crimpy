@@ -5908,7 +5908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1084922390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8432,6 +8432,7 @@ MonoBehaviour:
   suaraKrak: {fileID: 1329353460}
   spriteTangKebuka: {fileID: 668402052300217695, guid: 1dcba37bd0495444eaa2ec8a351c9608, type: 3}
   spriteTangKetutup: {fileID: 8031545499922794816, guid: ee913c58ed787d048ae48a7c248a593a, type: 3}
+  spriteRJ45CrimpBefore: {fileID: 0}
   spriteRJ45CrimpAfter: {fileID: 21300000, guid: 7a414185d542bee4397af7c697c75200, type: 3}
   totalKrakMekanisme: 3
   offsetTangKetutup: {x: -5.8837, y: -11.8625}
@@ -12528,6 +12529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PasangRJ45
   targetAdapterRJ45: {fileID: 1981217737}
   jarakSnap: 50
+  gunakanPosisiResetManual: 1
+  posisiResetManual: {x: -954, y: -6.5}
 --- !u!114 &1882255019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13737,7 +13740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072430949
 RectTransform:
   m_ObjectHideFlags: 0

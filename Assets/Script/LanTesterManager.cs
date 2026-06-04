@@ -111,4 +111,18 @@ public class LanTesterManager : MonoBehaviour
         c.a = alphaValue; 
         led.color = c;
     }
+
+    // 🔥 FUNGSI RESET UNTUK RETRY
+    public void ResetLanTesterManager()
+    {
+        // Hentikan putaran sequence lampu jika sedang berjalan
+        if (sequenceCoroutine != null) 
+        {
+            StopCoroutine(sequenceCoroutine);
+        }
+        
+        popupSudahMuncul = false; // Reset kunci popup
+        MatikanSemuaLED();        // Redupkan semua LED Master & Remote
+        Debug.Log("CONSOLE: LanTesterManager berhasil di-reset!");
+    }
 }

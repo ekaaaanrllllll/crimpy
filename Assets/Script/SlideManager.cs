@@ -79,7 +79,7 @@ public class SlideManager : MonoBehaviour
     }
 
     // ==========================================
-    // --- ANIMASI POPUP YANG SUDAH DIPERBAIKI ---
+    // --- ANIMASI POPUP ---
     // ==========================================
 
     public void TampilkanPopupSelesai()
@@ -128,9 +128,28 @@ public class SlideManager : MonoBehaviour
         NextSlide(); 
     }
 
+    // =========================================================================
+    // 🔥 FUNGSI TOMBOL RETRY (DI-UPDATE AGAR SELESAI SINKRON DENGAN LAN TESTER)
+    // =========================================================================
     public void PopupTombolRetry()
     {
-        popupSelesai.SetActive(false);
+        // 1. Matikan popup dan hilangkan animasinya agar bersih
+        if (popupSelesai != null) popupSelesai.SetActive(false);
+        if (popupCanvasGroup != null) popupCanvasGroup.alpha = 0;
+        StopAllCoroutines(); 
+
+        // 2. DETEKSI DAN RESET LOGIKA LAN TESTER JIKA SEDANG DIAKTIFKAN
+        // Menggunakan Object.FindFirstObjectByType yang kompatibel dengan standar Unity 6
+        LanTesterManager managerLampu = Object.FindFirstObjectByType<LanTesterManager>();
+        if (managerLampu != null) managerLampu.ResetLanTesterManager();
+
+        LanTesterPower saklarPower = Object.FindFirstObjectByType<LanTesterPower>();
+        if (saklarPower != null) saklarPower.ResetLanTesterPower();
+
+        TransisiLanTester transisiView = Object.FindFirstObjectByType<TransisiLanTester>();
+        if (transisiView != null) transisiView.ResetTransisiLanTester();
+
+        // 3. Matikan slide lalu nyalakan lagi untuk memicu fungsi restart visual bawaan GameObject
         if (slides[currentSlide] != null)
         {
             slides[currentSlide].SetActive(false);

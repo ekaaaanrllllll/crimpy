@@ -15,102 +15,84 @@ public class GeserKabel : MonoBehaviour,
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-
     private Vector2 posisiAwal;
+    private Image imageComponent;
 
     void Awake()
     {
-        rectTransform =
-            GetComponent<RectTransform>();
-
-        canvasGroup =
-            GetComponent<CanvasGroup>();
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        imageComponent = GetComponent<Image>();
 
         if (canvasGroup == null)
         {
-            canvasGroup =
-                gameObject.AddComponent<CanvasGroup>();
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
+        
+        // Catat posisi default awal game
+        posisiAwal = rectTransform.anchoredPosition;
     }
 
-    // =====================================
-    // BEGIN DRAG
-    // =====================================
-
-    public void OnBeginDrag(
-        PointerEventData eventData)
+    // FUNGSI BARU: Dipanggil oleh manager saat pengacakan posisi sukses dilakukan
+    public void PerbaruiPosisiAwalSaatIni(Vector2 posisiBaru)
     {
-        posisiAwal =
-            rectTransform.anchoredPosition;
-
-        canvasGroup.blocksRaycasts = false;
-
-        // reset warna
-        Image image =
-            GetComponent<Image>();
-
-        if (image != null)
+        posisiAwal = posisiBaru;
+        if (imageComponent != null)
         {
-            image.color = Color.white;
+            imageComponent.color = Color.white;
         }
     }
 
-    // =====================================
-    // DRAG
-    // =====================================
-
-    public void OnDrag(
-        PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition +=
-            eventData.delta /
-            canvasUtama.scaleFactor;
+        // Menyimpan posisi sebelum digeser (untuk kebutuhan swap/tukar)
+        posisiAwal = rectTransform.anchoredPosition;
+        canvasGroup.blocksRaycasts = false;
     }
 
-    // =====================================
-    // END DRAG
-    // =====================================
+    public void OnDrag(PointerEventData eventData)
+    {
+        rectTransform.anchoredPosition += eventData.delta / canvasUtama.scaleFactor;
+    }
 
-    public void OnEndDrag(
-        PointerEventData eventData)
+    public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
-
-        GameObject target =
-            eventData.pointerCurrentRaycast.gameObject;
+        GameObject target = eventData.pointerCurrentRaycast.gameObject;
 
         if (target != null)
         {
-            GeserKabel targetKabel =
-                target.GetComponent<GeserKabel>();
+            GeserKabel targetKabel = target.GetComponent<GeserKabel>();
 
-            if (targetKabel != null &&
-                targetKabel != this)
+            if (targetKabel != null && targetKabel != this)
             {
                 TukarPosisi(targetKabel);
                 return;
             }
         }
 
-        // balik kalau gagal
-        rectTransform.anchoredPosition =
-            posisiAwal;
+        // Balik ke posisi acak asalnya jika dilesir di tempat kosong
+        rectTransform.anchoredPosition = posisiAwal;
     }
 
-    // =====================================
-    // TUKAR POSISI
-    // =====================================
-
-    void TukarPosisi(
-        GeserKabel target)
+    void TukarPosisi(GeserKabel target)
     {
-        Vector2 posisiTarget =
-            target.rectTransform.anchoredPosition;
+        Vector2 posisiTarget = target.rectTransform.anchoredPosition;
+        
+        // Tukar posisi UI
+        target.rectTransform.anchoredPosition = posisiAwal;
+        rectTransform.anchoredPosition = posisiTarget;
 
-        target.rectTransform.anchoredPosition =
-            posisiAwal;
+        // Sinkronisasi memori posisi asal masing-masing setelah ditukar bos
+        Vector2 tempPosisiAwal = posisiAwal;
+        this.posisiAwal = posisiTarget;
+        target.posisiAwal = tempPosisiAwal;
 
-        rectTransform.anchoredPosition =
-            posisiTarget;
+        // Beritahu manager utama untuk langsung update preview di panel utama secara real-time
+        SusunKabelManager manager = FindFirstObjectByType<SusunKabelManager>();
+        if (manager != null)
+        {
+            manager.PerbaruiSemuaPreviewUtama();
+        }
     }
 }
