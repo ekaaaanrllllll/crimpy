@@ -16,9 +16,8 @@ public class SlideManager : MonoBehaviour
     public GameObject popupSelesai; 
     public CanvasGroup popupCanvasGroup; 
     
-    // --- TAMBAHAN BARU DI SINI BOS ---
+    [Header("4. Tambahan Animasi")]
     public Transform popupKonten; // Ini khusus untuk membesarkan isi popup (Mascot + Tombol)
-    
     public float durasiAnimasi = 0.5f;
 
     private int currentSlide = 0;
@@ -39,26 +38,43 @@ public class SlideManager : MonoBehaviour
     public void NextSlide() { if (currentSlide < slides.Length - 1) { currentSlide++; ShowSlide(currentSlide); } }
     public void PrevSlide() { if (currentSlide > 0) { currentSlide--; ShowSlide(currentSlide); } }
 
+    // ==========================================
+    // LOGIKA TAMPILAN SLIDE & NAVIGASI (DI-UPDATE)
+    // ==========================================
     void ShowSlide(int index)
     {
+        // Aktifkan slide yang dipilih dan matikan sisanya
         for (int i = 0; i < slides.Length; i++)
         {
             if (slides[i] != null) slides[i].SetActive(i == index);
         }
 
-        if (index == 0) 
+        // 1. Atur Play Button (Hanya muncul di Slide Awal / Index 0)
+        if (playButton != null) 
         {
-            if (playButton != null) playButton.SetActive(true);
-            if (nextButton != null) nextButton.gameObject.SetActive(false);
-            if (prevButton != null) prevButton.gameObject.SetActive(false);
+            playButton.SetActive(index == 0);
+        }
+
+        // 2. Atur Tombol Next & Prev (HANYA MUNCUL DI INDEX SLIDE 1 SAMPAI 3)
+        if (index >= 1 && index <= 3) 
+        {
+            if (nextButton != null) 
+            {
+                nextButton.gameObject.SetActive(true);
+                // Tombol jadi tidak interactable kalau ini slide terakhir (jaga-jaga)
+                nextButton.interactable = (index != slides.Length - 1); 
+            }
+            if (prevButton != null) 
+            {
+                prevButton.gameObject.SetActive(true);
+                prevButton.interactable = true;
+            }
         }
         else 
         {
-            if (playButton != null) playButton.SetActive(false);
-            if (nextButton != null) nextButton.gameObject.SetActive(true);
-            if (prevButton != null) prevButton.gameObject.SetActive(true);
-            if (prevButton != null) prevButton.interactable = true;
-            if (nextButton != null) nextButton.interactable = (index != slides.Length - 1);
+            // Jika berada di Slide 0 atau di atas Slide 3, SEMBUNYIKAN tombolnya
+            if (nextButton != null) nextButton.gameObject.SetActive(false);
+            if (prevButton != null) prevButton.gameObject.SetActive(false);
         }
     }
 
