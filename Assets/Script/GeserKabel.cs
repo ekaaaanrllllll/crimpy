@@ -52,7 +52,14 @@ public class GeserKabel : MonoBehaviour,
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvasUtama.scaleFactor;
+        // 1. Hitung posisi pergeseran baru seperti biasa
+        Vector2 posisiBaru = rectTransform.anchoredPosition + (eventData.delta / canvasUtama.scaleFactor);
+
+        // 2. 🔥 KUNCI POSISI X: Batasi agar nilai X tidak boleh kurang dari BatasXMin dan tidak boleh lebih dari BatasXMax
+        posisiBaru.x = Mathf.Clamp(posisiBaru.x, SusunKabelManager.BatasXMin, SusunKabelManager.BatasXMax);
+
+        // 3. Masukkan kembali posisi yang sudah aman ke RectTransform kabel
+        rectTransform.anchoredPosition = posisiBaru;
     }
 
     public void OnEndDrag(PointerEventData eventData)

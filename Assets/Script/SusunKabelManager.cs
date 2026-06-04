@@ -22,6 +22,8 @@ public class SusunKabelManager : MonoBehaviour
     public Transform parentKabelKanan;
 
     private readonly int[] urutanBenar = { 0, 1, 2, 3, 4, 5, 6, 7 };
+    public static float BatasXMin { get; private set; }
+    public static float BatasXMax { get; private set; }
 
     void OnEnable()
     {
@@ -50,26 +52,22 @@ public class SusunKabelManager : MonoBehaviour
     {
         if (parentZoom == null) return;
 
-        // 1. Ambil semua anak objek yang BENAR-BENAR merupakan komponen GeserKabel
         GeserKabel[] semuaKabel = parentZoom.GetComponentsInChildren<GeserKabel>(true);
         
         List<GeserKabel> listKabelWarna = new List<GeserKabel>();
-        List<Vector2> listPosisiKabelWarnaAsli = new List<Vector2>(); // <-- Nama variabel yang benar
+        List<Vector2> listPosisiKabelWarnaAsli = new List<Vector2>();
 
-        // FILTER: Pilah objek. Pastikan KabelBawah / KabelAtas tidak ikut masuk hitungan acak
         foreach (GeserKabel k in semuaKabel)
         {
-            // Deteksi berdasarkan nama objek bawaan di Hierarchy agar tidak salah saring
             if (k.name.Contains("KabelBawah") || k.name.Contains("KabelAtas"))
             {
-                continue; // Skip, jangan sentuh objek pelindung ini!
+                continue; 
             }
             listKabelWarna.Add(k);
         }
 
         if (listKabelWarna.Count == 0) return;
 
-        // 2. Urutkan koordinat X asli kabel warna dari kiri ke kanan sebelum dikocok
         listKabelWarna.Sort((a, b) => a.GetComponent<RectTransform>().anchoredPosition.x.CompareTo(b.GetComponent<RectTransform>().anchoredPosition.x));
         
         foreach (GeserKabel kabel in listKabelWarna)
@@ -77,7 +75,11 @@ public class SusunKabelManager : MonoBehaviour
             listPosisiKabelWarnaAsli.Add(kabel.GetComponent<RectTransform>().anchoredPosition);
         }
 
-        // 3. Kocok urutan list kabel warna saja (Fisher-Yates Shuffle)
+        // 🔥 CATAT BATAS HORIZONTAL TERLUAR DARI KABEL PERTAMA DAN TERAKHIR
+        // Diberi toleransi tambahan (misal -30f dan +30f) agar pergerakan drag terasa luwes tapi tetap tidak offside
+        BatasXMin = listPosisiKabelWarnaAsli[0].x - 30f;
+        BatasXMax = listPosisiKabelWarnaAsli[listPosisiKabelWarnaAsli.Count - 1].x + 30f;
+
         System.Random rng = new System.Random();
         int n = listKabelWarna.Count;
         while (n > 1)
@@ -89,22 +91,17 @@ public class SusunKabelManager : MonoBehaviour
             listKabelWarna[n] = value;
         }
 
-        // 4. Pasangkan kabel warna yang sudah acak ke koordinat posisi asli tadi
         for (int i = 0; i < listKabelWarna.Count; i++)
         {
             RectTransform rt = listKabelWarna[i].GetComponent<RectTransform>();
             if (rt != null)
             {
-                // Berikan koordinat X acak, posisi Y tetap aman mengunci
                 rt.anchoredPosition = listPosisiKabelWarnaAsli[i];
-                
-                // 🔥 FIX DI SINI: Sekarang nama variabel sudah disamakan agar tidak error lagi!
                 listKabelWarna[i].PerbaruiPosisiAwalSaatIni(listPosisiKabelWarnaAsli[i]);
             }
         }
 
-        // 5. Susun ulang Sibling Index khusus kabel warna agar urutan Hierarchy-nya sinkron pas di-Sort X position
-        int indeksMulai = 1; // Mulai dari indeks 1 (asumsi urutan ke-0 diisi KabelBawah)
+        int indeksMulai = 1; 
         for (int i = 0; i < listKabelWarna.Count; i++)
         {
             listKabelWarna[i].transform.SetSiblingIndex(indeksMulai + i);
