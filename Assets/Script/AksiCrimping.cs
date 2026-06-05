@@ -157,9 +157,9 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
             imageKabelRJ45.rectTransform.sizeDelta = new Vector2(402.2377f, 226.2587f);
         }
 
-        if (FindFirstObjectByType<SlideManager>() != null)
+        if (FindFirstObjectByType<SlideManager23>() != null)
         {
-            FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+            FindFirstObjectByType<SlideManager23>().TampilkanPopupSelesai();
         }
     }
 }

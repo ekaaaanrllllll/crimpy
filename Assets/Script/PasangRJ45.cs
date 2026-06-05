@@ -78,9 +78,9 @@ public class PasangRJ45 : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDr
             sudahTerpasang = true;
             Debug.Log("Kabel berhasil masuk ke RJ45!");
             
-            if (FindFirstObjectByType<SlideManager>() != null)
+            if (FindFirstObjectByType<SlideManager23>() != null)
             {
-                FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+                FindFirstObjectByType<SlideManager23>().TampilkanPopupSelesai();
             }
         }
         else

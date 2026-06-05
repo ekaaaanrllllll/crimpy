@@ -80,9 +80,9 @@ public class LanTesterManager : MonoBehaviour
                     // ==========================================
                     // --- MEMANGGIL POPUP SUKSES DARI SINI ---
                     // ==========================================
-                    if (FindFirstObjectByType<SlideManager>() != null)
+                    if (FindFirstObjectByType<SlideManager23>() != null)
                     {
-                        FindFirstObjectByType<SlideManager>().TampilkanPopupSelesai();
+                        FindFirstObjectByType<SlideManager23>().TampilkanPopupSelesai();
                     }
                     // ==========================================
                 }

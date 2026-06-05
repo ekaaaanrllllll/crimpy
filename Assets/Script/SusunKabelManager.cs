@@ -191,7 +191,7 @@ public class SusunKabelManager : MonoBehaviour
         if (kiriBenar && kananBenar)
         {
             Debug.Log("BENAR - STRAIGHT THROUGH");
-            SlideManager sm = FindFirstObjectByType<SlideManager>();
+            SlideManager23 sm = FindFirstObjectByType<SlideManager23>();
             if (sm != null) sm.TampilkanPopupSelesai();
         }
         else

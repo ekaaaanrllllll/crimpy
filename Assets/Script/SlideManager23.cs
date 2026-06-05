@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class SlideManager : MonoBehaviour
+// Ubah nama class menjadi SlideManager23 agar sinkron dengan kebutuhan scene 2-3
+public class SlideManager23 : MonoBehaviour
 {
     [Header("1. Daftar Slide Materi")]
     public GameObject[] slides; 
@@ -17,7 +18,7 @@ public class SlideManager : MonoBehaviour
     public CanvasGroup popupCanvasGroup; 
     
     [Header("4. Tambahan Animasi")]
-    public Transform popupKonten; // Ini khusus untuk membesarkan isi popup (Mascot + Tombol)
+    public Transform popupKonten; 
     public float durasiAnimasi = 0.5f;
 
     private int currentSlide = 0;
@@ -38,30 +39,21 @@ public class SlideManager : MonoBehaviour
     public void NextSlide() { if (currentSlide < slides.Length - 1) { currentSlide++; ShowSlide(currentSlide); } }
     public void PrevSlide() { if (currentSlide > 0) { currentSlide--; ShowSlide(currentSlide); } }
 
-    // ==========================================
-    // LOGIKA TAMPILAN SLIDE & NAVIGASI (DI-UPDATE)
-    // ==========================================
     void ShowSlide(int index)
     {
-        // Aktifkan slide yang dipilih dan matikan sisanya
         for (int i = 0; i < slides.Length; i++)
         {
             if (slides[i] != null) slides[i].SetActive(i == index);
         }
 
-        // 1. Atur Play Button (Hanya muncul di Slide Awal / Index 0)
-        if (playButton != null) 
-        {
-            playButton.SetActive(index == 0);
-        }
+        if (playButton != null) playButton.SetActive(index == 0);
 
-        // 2. Atur Tombol Next & Prev (HANYA MUNCUL DI INDEX SLIDE 1 SAMPAI 3)
+        // Aturan Scene 2 & 3: Tombol Next & Prev hanya muncul di slide 1 sampai 3
         if (index >= 1 && index <= 3) 
         {
             if (nextButton != null) 
             {
                 nextButton.gameObject.SetActive(true);
-                // Tombol jadi tidak interactable kalau ini slide terakhir (jaga-jaga)
                 nextButton.interactable = (index != slides.Length - 1); 
             }
             if (prevButton != null) 
@@ -72,15 +64,10 @@ public class SlideManager : MonoBehaviour
         }
         else 
         {
-            // Jika berada di Slide 0 atau di atas Slide 3, SEMBUNYIKAN tombolnya
             if (nextButton != null) nextButton.gameObject.SetActive(false);
             if (prevButton != null) prevButton.gameObject.SetActive(false);
         }
     }
-
-    // ==========================================
-    // --- ANIMASI POPUP YANG SUDAH DIPERBAIKI ---
-    // ==========================================
 
     public void TampilkanPopupSelesai()
     {
@@ -95,8 +82,6 @@ public class SlideManager : MonoBehaviour
     {
         popupSelesai.SetActive(true);
         popupCanvasGroup.alpha = 0;
-        
-        // Yang dikecilin di awal cuma Popup_Konten-nya saja
         if (popupKonten != null) popupKonten.localScale = Vector3.one * 0.7f; 
 
         float timer = 0;
@@ -104,17 +89,13 @@ public class SlideManager : MonoBehaviour
         {
             timer += Time.deltaTime;
             float progress = timer / durasiAnimasi;
-
-            // 1. Background Hitam (+seluruh layar) memudar masuk
             popupCanvasGroup.alpha = progress;
 
-            // 2. HANYA Konten (Mascot+Tombol) yang membesar nge-pop
             if (popupKonten != null)
             {
                 float scale = Mathf.Lerp(0.7f, 1f, Mathf.Sin(progress * Mathf.PI * 0.5f));
                 popupKonten.localScale = Vector3.one * scale;
             }
-
             yield return null;
         }
 
@@ -130,13 +111,23 @@ public class SlideManager : MonoBehaviour
 
     public void PopupTombolRetry()
     {
-        popupSelesai.SetActive(false);
+        if (popupSelesai != null) popupSelesai.SetActive(false);
+        if (popupCanvasGroup != null) popupCanvasGroup.alpha = 0;
+        StopAllCoroutines(); 
+
+        LanTesterManager managerLampu = FindFirstObjectByType<LanTesterManager>(FindObjectsInactive.Include);
+        if (managerLampu != null) managerLampu.ResetLanTesterManager();
+
+        LanTesterPower saklarPower = FindFirstObjectByType<LanTesterPower>(FindObjectsInactive.Include);
+        if (saklarPower != null) saklarPower.ResetLanTesterPower();
+
+        TransisiLanTester transisiView = FindFirstObjectByType<TransisiLanTester>(FindObjectsInactive.Include);
+        if (transisiView != null) transisiView.ResetTransisiLanTester();
+
         if (slides[currentSlide] != null)
         {
             slides[currentSlide].SetActive(false);
             slides[currentSlide].SetActive(true);
         }
     }
-
-    public void BukaGembokSlideIni() { }
 }

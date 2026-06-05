@@ -3,7 +3,7 @@ using UnityEngine;
 public class ManagerUraikanKabel : MonoBehaviour
 {
     [Header("Hubungkan ke Game Manager")]
-    public SlideManager slideManagerUtama; 
+    public SlideManager23 slideManagerUtama; 
 
     private int jumlahKabelLurus = 0;
     private int totalKabel = 4; // Oren, Hijau, Biru, Coklat

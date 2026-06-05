@@ -19,7 +19,7 @@ public class PotongKabelGeser : MonoBehaviour, IDragHandler, IEndDragHandler
     
     // 1. KITA GANTI TOMBOL NEXT JADI SLIDE MANAGER UTAMA
     [Header("Hubungkan ke Game Manager")]
-    public SlideManager slideManagerUtama;       
+    public SlideManager23 slideManagerUtama;       
 
     [Header("Pengaturan Potong")]
     public int butuhBerapaAyunan = 6;

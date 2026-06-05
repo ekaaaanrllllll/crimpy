@@ -19,7 +19,7 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private bool isLocked = false;     // State: Sudah tertancap sempurna?
     
     // (Biar script ini bisa manggil popup sukses di SlideManager nanti)
-    private SlideManager slideManager; 
+    private SlideManager23 slideManager; 
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     void Start()
     {
-        slideManager = FindObjectOfType<SlideManager>();
+        slideManager = FindObjectOfType<SlideManager23>();
     }
 
     // --- INTERAKSI DRAG (SWIPE) ---

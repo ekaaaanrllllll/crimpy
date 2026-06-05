@@ -220,10 +220,10 @@ RectTransform:
   - {fileID: 17456092}
   - {fileID: 1386584662}
   - {fileID: 1946523628}
+  - {fileID: 130814568}
   - {fileID: 1308996260}
   - {fileID: 1647227236}
   - {fileID: 531763102}
-  - {fileID: 130814568}
   - {fileID: 1338136225}
   - {fileID: 381225574}
   - {fileID: 1469359287}
@@ -4255,7 +4255,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 536950481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5dc426fa9b07974787bffc029df0b85, type: 3}
+  m_Script: {fileID: 11500000, guid: c74b94796f3fc9e4ab472acb59a0a544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlideManager
   slides:
