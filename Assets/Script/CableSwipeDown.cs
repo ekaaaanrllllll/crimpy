@@ -6,7 +6,6 @@ using System.Collections;
 public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Coordinate Settings (DARI INPUT BOS)")]
-    // Koordinat yang kamu kasih tadi
     public float posY_Ready = 406.02f;   // Posisi Start (Atas)
     public float posY_Locked = 308f;     // Posisi End/Tancap (Bawah)
 
@@ -18,39 +17,36 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private Canvas canvas;
     private bool isLocked = false;     // State: Sudah tertancap sempurna?
     
-    // (Biar script ini bisa manggil popup sukses di SlideManager nanti)
-    private SlideManager23 slideManager; 
+    // FIXED: Diubah ke SlideManager sesuai nama class asli kamu
+    private SlideManager slideManager; 
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         
-        // PENTING: Saat Slide 6 dinyalakan, visual kabel HARUS di posisi Ready
-        // (Bahasan transisi fade tadi yang mengurus ini)
+        // Saat Slide dinyalakan, visual kabel HARUS di posisi Ready
         rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, posY_Ready);
     }
 
     void Start()
     {
-        slideManager = FindObjectOfType<SlideManager23>();
+        // FIXED: Mencari SlideManager asli
+        slideManager = FindFirstObjectByType<SlideManager>();
     }
 
     // --- INTERAKSI DRAG (SWIPE) ---
     
-    // Dipanggil saat jari/mouse PERTAMA KALI nempel dan gerak
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (isLocked) return; // Kalau udah dicolok, ga usah drag lagi
         Debug.Log("Mulai swipe kabel ke bawah...");
     }
 
-    // Dipanggil TERUS-MENERUS selama jari/mouse gerak
     public void OnDrag(PointerEventData eventData)
     {
         if (isLocked) return;
 
-        // --- INI KUNCINYA (KUNCI VERTIKAL KE BAWAH) ---
         // Hitung perubahan posisi jari di sumbu Y (dibagi scaleFactor canvas biar akurat)
         float deltaY = eventData.delta.y / canvas.scaleFactor;
         
@@ -59,19 +55,13 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         float newY = currentAnchoredPos.y + deltaY;
 
         // --- PAKSA KUNCI ---
-        // 1. Kunci Sumbu X (Jangan biarkan kabel gerak kiri kanan)
         float kunciX = currentAnchoredPos.x;
-
-        // 2. Kunci Sumbu Y (PENTOKIN Atas & Bawah)
-        // newY tidak boleh > posY_Ready (biar ga tembus atas)
-        // newY tidak boleh < posY_Locked (biar ga tembus bawah/lubang)
         newY = Mathf.Clamp(newY, posY_Locked, posY_Ready);
 
         // TERAPKAN POSISI BARU
         rectTransform.anchoredPosition = new Vector2(kunciX, newY);
     }
 
-    // Dipanggil saat jari/mouse DILEPAS
     public void OnEndDrag(PointerEventData eventData)
     {
         if (isLocked) return;
@@ -82,12 +72,10 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         if (jarakKeTarget <= jarakMagnet)
         {
-            // Bener! Masuk area magnet target. SNAP & LOCK!
             LakukanSnapNLockTuntas();
         }
         else
         {
-            // Terlalu jauh dilepasnya. SNAP BACK balik ke atas (Ready)
             LakukanSnapBackKeReady();
         }
     }
@@ -100,24 +88,32 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         
         GetComponent<Image>().raycastTarget = false;
         
-        // --- TAMBAHKAN KODE INI BOS ---
-        if(FindObjectOfType<LanTesterPower>() != null)
-        {
-            FindObjectOfType<LanTesterPower>().AktifkanSwitchInput();
-        }
-        // -----------------------------
+        // ====================================================================
+        // 🔥 SOLUSI PINTAR: COCOKKAN SCRIPT POWER MANA YANG ADA DI SCENE INI
+        // ====================================================================
         
-        // if(slideManager != null)
-        // {
-        //     Invoke("TampilkanPopupManager", 0.5f);
-        // }
+        // 1. Coba cari apakah ini Scene Straight biasa?
+        LanTesterPower normalPower = FindFirstObjectByType<LanTesterPower>();
+        if (normalPower != null)
+        {
+            normalPower.AktifkanSwitchInput();
+            Debug.Log("CONSOLE: Mengaktifkan Switch Input pada LanTesterPower Biasa.");
+        }
+
+        // 2. Coba cari apakah ini Scene Crossover baru?
+        LanTesterCrossoverPower crossPower = FindFirstObjectByType<LanTesterCrossoverPower>();
+        if (crossPower != null)
+        {
+            crossPower.AktifkanSwitchInput();
+            Debug.Log("CONSOLE: Mengaktifkan Switch Input pada LanTesterCrossoverPower.");
+        }
+        
+        // ====================================================================
     }
 
-    // Fungsi Snap balik ke atas karena pemain lepas di tengah jalan
     void LakukanSnapBackKeReady()
     {
         Debug.Log("Kabel kurang masuk bos! Ulangi swipe.");
-        // Smooth snap back menggunakan Coroutine agar tidak teleport
         StartCoroutine(AnimateSnapBack());
     }
 
@@ -126,7 +122,7 @@ public class CableSwipeDown : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         Vector2 currentPos = rectTransform.anchoredPosition;
         Vector2 targetPos = new Vector2(currentPos.x, posY_Ready);
         float elapsed = 0;
-        float duration = 0.15f; // Cepat
+        float duration = 0.15f;
 
         while (elapsed < duration)
         {

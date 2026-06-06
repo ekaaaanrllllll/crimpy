@@ -18,6 +18,10 @@ public class GeserKabel : MonoBehaviour,
     private Vector2 posisiAwal;
     private Image imageComponent;
 
+    // Variabel internal untuk mencatat batas gerak dinamis
+    private float batasXMinLokal = -9999f;
+    private float batasXMaxLokal = 9999f;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -29,11 +33,28 @@ public class GeserKabel : MonoBehaviour,
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
         }
         
-        // Catat posisi default awal game
         posisiAwal = rectTransform.anchoredPosition;
     }
 
-    // FUNGSI BARU: Dipanggil oleh manager saat pengacakan posisi sukses dilakukan
+    void OnEnable()
+    {
+        // 🔥 LOGIKA DETEKSI OTOMATIS: Mengambil batas gerak dari manager mana pun yang sedang aktif di scene
+        SusunKabelManager managerStraight = FindFirstObjectByType<SusunKabelManager>(FindObjectsInactive.Include);
+        if (managerStraight != null)
+        {
+            batasXMinLokal = SusunKabelManager.BatasXMin;
+            batasXMaxLokal = SusunKabelManager.BatasXMax;
+            return;
+        }
+
+        SusunKabelCrossoverManager managerCross = FindFirstObjectByType<SusunKabelCrossoverManager>(FindObjectsInactive.Include);
+        if (managerCross != null)
+        {
+            batasXMinLokal = SusunKabelCrossoverManager.BatasXMin;
+            batasXMaxLokal = SusunKabelCrossoverManager.BatasXMax;
+        }
+    }
+
     public void PerbaruiPosisiAwalSaatIni(Vector2 posisiBaru)
     {
         posisiAwal = posisiBaru;
@@ -41,24 +62,41 @@ public class GeserKabel : MonoBehaviour,
         {
             imageComponent.color = Color.white;
         }
+
+        // Perbarui ulang batas setelah posisi diacak oleh manager
+        PerbaruiBatasGerak();
+    }
+
+    void PerbaruiBatasGerak()
+    {
+        if (FindFirstObjectByType<SusunKabelManager>(FindObjectsInactive.Include) != null)
+        {
+            batasXMinLokal = SusunKabelManager.BatasXMin;
+            batasXMaxLokal = SusunKabelManager.BatasXMax;
+        }
+        else if (FindFirstObjectByType<SusunKabelCrossoverManager>(FindObjectsInactive.Include) != null)
+        {
+            batasXMinLokal = SusunKabelCrossoverManager.BatasXMin;
+            batasXMaxLokal = SusunKabelCrossoverManager.BatasXMax;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Menyimpan posisi sebelum digeser (untuk kebutuhan swap/tukar)
         posisiAwal = rectTransform.anchoredPosition;
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // 1. Hitung posisi pergeseran baru seperti biasa
         Vector2 posisiBaru = rectTransform.anchoredPosition + (eventData.delta / canvasUtama.scaleFactor);
 
-        // 2. 🔥 KUNCI POSISI X: Batasi agar nilai X tidak boleh kurang dari BatasXMin dan tidak boleh lebih dari BatasXMax
-        posisiBaru.x = Mathf.Clamp(posisiBaru.x, SusunKabelManager.BatasXMin, SusunKabelManager.BatasXMax);
+        // Jaga-jaga jika batas belum terisi, lakukan perbaruan instan
+        if (batasXMinLokal == -9999f) PerbaruiBatasGerak();
 
-        // 3. Masukkan kembali posisi yang sudah aman ke RectTransform kabel
+        // 🔥 FIX: Menggunakan batas lokal yang sudah adaptif terhadap manager yang aktif
+        posisiBaru.x = Mathf.Clamp(posisiBaru.x, batasXMinLokal, batasXMaxLokal);
+
         rectTransform.anchoredPosition = posisiBaru;
     }
 
@@ -78,7 +116,6 @@ public class GeserKabel : MonoBehaviour,
             }
         }
 
-        // Balik ke posisi acak asalnya jika dilesir di tempat kosong
         rectTransform.anchoredPosition = posisiAwal;
     }
 
@@ -86,20 +123,25 @@ public class GeserKabel : MonoBehaviour,
     {
         Vector2 posisiTarget = target.rectTransform.anchoredPosition;
         
-        // Tukar posisi UI
         target.rectTransform.anchoredPosition = posisiAwal;
         rectTransform.anchoredPosition = posisiTarget;
 
-        // Sinkronisasi memori posisi asal masing-masing setelah ditukar bos
         Vector2 tempPosisiAwal = posisiAwal;
         this.posisiAwal = posisiTarget;
         target.posisiAwal = tempPosisiAwal;
 
-        // Beritahu manager utama untuk langsung update preview di panel utama secara real-time
-        SusunKabelManager manager = FindFirstObjectByType<SusunKabelManager>();
-        if (manager != null)
+        // 🔥 FIX: Cek secara dinamis manager mana yang ada di scene saat ini untuk memperbarui preview UI
+        SusunKabelManager managerStraight = FindFirstObjectByType<SusunKabelManager>();
+        if (managerStraight != null)
         {
-            manager.PerbaruiSemuaPreviewUtama();
+            managerStraight.PerbaruiSemuaPreviewUtama();
+            return;
+        }
+
+        SusunKabelCrossoverManager managerCross = FindFirstObjectByType<SusunKabelCrossoverManager>();
+        if (managerCross != null)
+        {
+            managerCross.PerbaruiSemuaPreviewUtama();
         }
     }
 }

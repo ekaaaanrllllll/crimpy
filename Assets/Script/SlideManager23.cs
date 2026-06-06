@@ -118,6 +118,9 @@ public class SlideManager23 : MonoBehaviour
         LanTesterManager managerLampu = FindFirstObjectByType<LanTesterManager>(FindObjectsInactive.Include);
         if (managerLampu != null) managerLampu.ResetLanTesterManager();
 
+        LanTesterCrossoverManager managerLampuCross = FindFirstObjectByType<LanTesterCrossoverManager>(FindObjectsInactive.Include);
+        if (managerLampuCross != null) managerLampuCross.ResetLanTesterCrossoverManager();
+
         LanTesterPower saklarPower = FindFirstObjectByType<LanTesterPower>(FindObjectsInactive.Include);
         if (saklarPower != null) saklarPower.ResetLanTesterPower();
 
