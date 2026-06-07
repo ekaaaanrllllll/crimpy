@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 
-public class SusunKabelManager : MonoBehaviour
+public class SusunKabelCrossoverManager : MonoBehaviour
 {
     [Header("Panel")]
     public GameObject panelUtama;
@@ -21,7 +21,12 @@ public class SusunKabelManager : MonoBehaviour
     public Transform parentKabelKiri;
     public Transform parentKabelKanan;
 
-    private readonly int[] urutanBenar = { 0, 1, 2, 3, 4, 5, 6, 7 };
+    // 🔥 KUNCI JAWABAN CROSSOVER (T568A di Kiri, T568B di Kanan)
+    // Asumsi Urutan ID Kabel (Sama seperti Straight):
+    // 0: Putih-Oranye, 1: Oranye, 2: Putih-Hijau, 3: Biru, 4: Putih-Biru, 5: Hijau, 6: Putih-Cokelat, 7: Cokelat
+    private readonly int[] urutanBenarKiri = { 2, 5, 0, 3, 4, 1, 6, 7 }; // T568A (Putih-Hijau, Hijau, Putih-Oranye, ...)
+    private readonly int[] urutanBenarKanan = { 0, 1, 2, 3, 4, 5, 6, 7 }; // T568B (Putih-Oranye, Oranye, Putih-Hijau, ...)
+
     public static float BatasXMin { get; private set; }
     public static float BatasXMax { get; private set; }
 
@@ -31,7 +36,7 @@ public class SusunKabelManager : MonoBehaviour
         if (panelZoomKiri != null) panelZoomKiri.SetActive(false);
         if (networkZoomKanan != null) networkZoomKanan.SetActive(false);
 
-        // Langsung acak warna kabelnya saja saat masuk slide
+        // Langsung acak warna kabelnya saat masuk slide
         AcakUrutanKabelWarnaSaja(parentKabelKiri);
         AcakUrutanKabelWarnaSaja(parentKabelKanan);
 
@@ -46,7 +51,7 @@ public class SusunKabelManager : MonoBehaviour
     }
 
     // =========================================================================
-    // LOGIK BARU: HANYA MENGACAK KABEL BERWARNA (KABEL ATAS & BAWAH TIDAK IKUT)
+    // LOGIK: HANYA MENGACAK KABEL BERWARNA (KABEL ATAS & BAWAH TIDAK IKUT)
     // =========================================================================
     void AcakUrutanKabelWarnaSaja(Transform parentZoom)
     {
@@ -75,8 +80,6 @@ public class SusunKabelManager : MonoBehaviour
             listPosisiKabelWarnaAsli.Add(kabel.GetComponent<RectTransform>().anchoredPosition);
         }
 
-        // 🔥 CATAT BATAS HORIZONTAL TERLUAR DARI KABEL PERTAMA DAN TERAKHIR
-        // Diberi toleransi tambahan (misal -30f dan +30f) agar pergerakan drag terasa luwes tapi tetap tidak offside
         BatasXMin = listPosisiKabelWarnaAsli[0].x - 30f;
         BatasXMax = listPosisiKabelWarnaAsli[listPosisiKabelWarnaAsli.Count - 1].x + 30f;
 
@@ -116,7 +119,6 @@ public class SusunKabelManager : MonoBehaviour
 
     GeserKabel[] DapatkanKabelBerurutan(Transform parentZoom)
     {
-        // Ambil semua komponen GeserKabel, bersihkan dari objek KabelAtas/KabelBawah agar tidak merusak index validasi
         GeserKabel[] semua = parentZoom.GetComponentsInChildren<GeserKabel>();
         List<GeserKabel> validKabel = new List<GeserKabel>();
 
@@ -183,31 +185,47 @@ public class SusunKabelManager : MonoBehaviour
         }
     }
 
+    // =========================================================================
+    // VALIDASI KLIK TOMBOL CEK SUSUNAN
+    // =========================================================================
     public void TombolCekSusunan()
     {
-        bool kiriBenar = Validasi(parentKabelKiri);
-        bool kananBenar = Validasi(parentKabelKanan);
+        // Jalankan pengecekan dasar untuk setiap panel terlebih dahulu
+        bool kiriCocokA = Validasi(parentKabelKiri, urutanBenarKiri);
+        bool kiriCocokB = Validasi(parentKabelKiri, urutanBenarKanan);
+        
+        bool kananCocokA = Validasi(parentKabelKanan, urutanBenarKiri);
+        bool kananCocokB = Validasi(parentKabelKanan, urutanBenarKanan);
 
-        if (kiriBenar && kananBenar)
+        // 🔥 KONDISI 1: Kiri adalah T568A DAN Kanan adalah T568B
+        bool kombinasiNormal = kiriCocokA && kananCocokB;
+
+        // 🔥 KONDISI 2: Kiri adalah T568B DAN Kanan adalah T568A (Kondisi Tukar Posisi)
+        bool kombinasiTerbalik = kiriCocokB && kananCocokA;
+
+        // Jika salah satu dari kedua kombinasi di atas terpenuhi, maka dianggap BENAR!
+        if (kombinasiNormal || kombinasiTerbalik)
         {
-            Debug.Log("BENAR - STRAIGHT THROUGH");
-            SlideManager23 sm = FindFirstObjectByType<SlideManager23>();
+            Debug.Log("BENAR - KABEL CROSSOVER VALID (Polanya Saling Silang)");
+            
+            // Mencari SlideManager23 bawaan Scene 2 & 3 agar sinkron
+            SlideManager23 sm = FindFirstObjectByType<SlideManager23>(FindObjectsInactive.Include);
             if (sm != null) sm.TampilkanPopupSelesai();
         }
         else
         {
-            Debug.Log("SALAH - Silakan periksa kembali susunan kabel Anda!");
+            Debug.Log("SALAH - Silakan periksa kembali susunan kabel Crossover Anda! Pastikan kedua ujung memiliki standar berbeda (A dan B).");
         }
     }
 
-    bool Validasi(Transform parent)
+    bool Validasi(Transform parent, int[] kunciJawaban)
     {
         GeserKabel[] kabelTerurut = DapatkanKabelBerurutan(parent);
-        if (kabelTerurut.Length == 0) return false;
+        if (kabelTerurut.Length == 0 || kabelTerurut.Length != kunciJawaban.Length) return false;
 
         for (int i = 0; i < kabelTerurut.Length; i++)
         {
-            if (kabelTerurut[i].idKabel != urutanBenar[i])
+            if (kabelTerurut[i].idKabel != kunciJawaban[i])
             {
                 return false;
             }

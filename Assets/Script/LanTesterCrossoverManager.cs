@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class LanTesterManager : MonoBehaviour
+public class LanTesterCrossoverManager : MonoBehaviour
 {
     [Header("Pengaturan LED Master (Isi 8 Lampu)")]
     public Image[] masterLEDs; 
@@ -13,7 +13,7 @@ public class LanTesterManager : MonoBehaviour
     [Header("Kecepatan & Visual Lampu")]
     public float kecepatanPindah = 0.5f; // Waktu jeda per lampu (detik)
     
-    // Kita pakai efek Transparansi (Alpha) untuk membedakan mati/nyala
+    // Efek Transparansi (Alpha) untuk membedakan mati/nyala
     public float alphaMati = 0.2f;  // Redup
     public float alphaNyala = 1.0f; // Terang benderang
 
@@ -22,6 +22,10 @@ public class LanTesterManager : MonoBehaviour
 
     private Coroutine sequenceCoroutine;
     private bool popupSudahMuncul = false; // Biar popup ga kepanggil berkali-kali
+
+    // 🔥 KUNCI URUTAN REMOTE UNTUK CROSSOVER (Konversi ke Index Array 0-7)
+    // Master [0, 1, 2, 3, 4, 5, 6, 7] akan menyalakan Remote sesuai isi array ini:
+    private readonly int[] urutanRemoteCrossover = { 2, 5, 0, 3, 4, 1, 6, 7 };
 
     void Start()
     {
@@ -48,7 +52,7 @@ public class LanTesterManager : MonoBehaviour
     IEnumerator JalankanSequenceLampu()
     {
         int index = 0;
-        int jumlahPutaran = 0; // Variabel baru untuk menghitung balikan
+        int jumlahPutaran = 0; // Variabel untuk menghitung balikan
         
         // Looping terus-menerus selama alat menyala
         while (true) 
@@ -56,35 +60,45 @@ public class LanTesterManager : MonoBehaviour
             // 1. Matikan semua lampu dulu di awal siklus
             MatikanSemuaLED();
 
-            // 2. Nyalakan lampu Master dan Remote sesuai urutan (index)
+            // 2. Nyalakan lampu Master sesuai urutan (index)
             if (index < masterLEDs.Length) SetAlpha(masterLEDs[index], alphaNyala);
-            if (index < remoteLEDs.Length) SetAlpha(remoteLEDs[index], alphaNyala);
+            
+            // 3. 🔥 LOGIKA BARU: Nyalakan lampu Remote berdasarkan Mapping Crossover
+            if (index < urutanRemoteCrossover.Length)
+            {
+                int remoteTargetIndex = urutanRemoteCrossover[index];
+                if (remoteTargetIndex < remoteLEDs.Length)
+                {
+                    SetAlpha(remoteLEDs[remoteTargetIndex], alphaNyala);
+                }
+            }
 
-            // 3. Tunggu sebentar (Jeda)
+            // 4. Tunggu sebentar (Jeda)
             yield return new WaitForSeconds(kecepatanPindah);
 
-            // 4. Lanjut ke lampu berikutnya
+            // 5. Lanjut ke lampu berikutnya
             index++;
             
-            // 5. Kalau index udah sampai 8, balik lagi ke 0 (Satu putaran selesai!)
+            // 6. Kalau index udah sampai 8, balik lagi ke 0 (Satu putaran selesai!)
             if (index >= 8) 
             {
                 index = 0; // Balik ke lampu 1
                 jumlahPutaran++; // Tambah hitungan putaran
 
-                // CEK APAKAH SUDAH 6 PUTARAN & POPUP BELUM MUNCUL
+                // CEK APAKAH SUDAH PUTARAN TARGET & POPUP BELUM MUNCUL
                 if (jumlahPutaran >= targetPutaran && !popupSudahMuncul)
                 {
-                    popupSudahMuncul = true; // Kunci biar ga manggil popup lagi di putaran ke 7, 8, dst.
+                    popupSudahMuncul = true; // Kunci biar ga manggil popup lagi di putaran berikutnya
                     
-                    // ==========================================
-                    // --- MEMANGGIL POPUP SUKSES DARI SINI ---
-                    // ==========================================
-                    if (FindFirstObjectByType<SlideManager23>() != null)
+                    // ==================================================
+                    // --- MEMANGGIL POPUP SUKSES SCENE 2 & 3 DI SINI ---
+                    // ==================================================
+                    SlideManager23 sm = FindFirstObjectByType<SlideManager23>(FindObjectsInactive.Include);
+                    if (sm != null)
                     {
-                        FindFirstObjectByType<SlideManager23>().TampilkanPopupSelesai();
+                        sm.TampilkanPopupSelesai();
                     }
-                    // ==========================================
+                    // ==================================================
                 }
             }
         }
@@ -112,8 +126,8 @@ public class LanTesterManager : MonoBehaviour
         led.color = c;
     }
 
-    // 🔥 FUNGSI RESET UNTUK RETRY
-    public void ResetLanTesterManager()
+    // 🔥 FUNGSI RESET UNTUK RETRY (PENTING: Harus didaftarkan di SlideManager23)
+    public void ResetLanTesterCrossoverManager()
     {
         // Hentikan putaran sequence lampu jika sedang berjalan
         if (sequenceCoroutine != null) 
@@ -123,6 +137,6 @@ public class LanTesterManager : MonoBehaviour
         
         popupSudahMuncul = false; // Reset kunci popup
         MatikanSemuaLED();        // Redupkan semua LED Master & Remote
-        Debug.Log("CONSOLE: LanTesterManager berhasil di-reset!");
+        Debug.Log("CONSOLE: LanTesterCrossoverManager berhasil di-reset!");
     }
 }

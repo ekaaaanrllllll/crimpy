@@ -814,7 +814,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 536950485}
-        m_TargetAssemblyTypeName: SlideManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SlideManager14, Assembly-CSharp
         m_MethodName: StartMateri
         m_Mode: 1
         m_Arguments:
@@ -1483,8 +1483,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950486}
-        m_TargetAssemblyTypeName: SlideManagerOld, Assembly-CSharp
+      - m_Target: {fileID: 536950485}
+        m_TargetAssemblyTypeName: SlideManager14, Assembly-CSharp
         m_MethodName: PrevSlide
         m_Mode: 1
         m_Arguments:
@@ -2024,7 +2024,6 @@ GameObject:
   - component: {fileID: 536950484}
   - component: {fileID: 536950482}
   - component: {fileID: 536950485}
-  - component: {fileID: 536950486}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -2070,11 +2069,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536950481}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5dc426fa9b07974787bffc029df0b85, type: 3}
+  m_Script: {fileID: 11500000, guid: bc72b363b36e439478080e6d81bdb59a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlideManager
+  m_EditorClassIdentifier: Assembly-CSharp::SlideManager14
   slides:
   - {fileID: 624557416}
   - {fileID: 1386584661}
@@ -2085,34 +2084,6 @@ MonoBehaviour:
   - {fileID: 729827873}
   - {fileID: 349926418}
   - {fileID: 1764643657}
-  playButton: {fileID: 156888682}
-  nextButton: {fileID: 1862291987}
-  prevButton: {fileID: 281594561}
-  popupSelesai: {fileID: 0}
-  popupCanvasGroup: {fileID: 0}
-  popupKonten: {fileID: 0}
-  durasiAnimasi: 0.5
---- !u!114 &536950486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536950481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56014a082e23bd743a27957957ef592e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlideManagerOld
-  slides:
-  - {fileID: 624557416}
-  - {fileID: 1386584661}
-  - {fileID: 1946523627}
-  - {fileID: 608054882}
-  - {fileID: 708722828}
-  - {fileID: 1210671402}
-  - {fileID: 729827873}
-  - {fileID: 349926418}
   playButton: {fileID: 156888682}
   nextButton: {fileID: 1862291987}
   prevButton: {fileID: 281594561}
@@ -6180,8 +6151,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 536950486}
-        m_TargetAssemblyTypeName: SlideManagerOld, Assembly-CSharp
+      - m_Target: {fileID: 536950485}
+        m_TargetAssemblyTypeName: SlideManager14, Assembly-CSharp
         m_MethodName: NextSlide
         m_Mode: 1
         m_Arguments:

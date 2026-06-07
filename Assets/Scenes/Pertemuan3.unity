@@ -763,7 +763,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 130814572}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SusunKabelCrossoverManager, Assembly-CSharp
         m_MethodName: TombolCekSusunan
         m_Mode: 1
         m_Arguments:
@@ -1369,9 +1369,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 130814567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd24e765c49de34881fb31488a87c2f, type: 3}
+  m_Script: {fileID: 11500000, guid: c96c5bb7086818348a87355188554cf1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SusunKabelManager
+  m_EditorClassIdentifier: Assembly-CSharp::SusunKabelCrossoverManager
   panelUtama: {fileID: 1474023855}
   panelZoomKiri: {fileID: 1547861844}
   networkZoomKanan: {fileID: 475825423}
@@ -1938,8 +1938,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 531763107}
-        m_TargetAssemblyTypeName: LANTesterPower, Assembly-CSharp
+      - m_Target: {fileID: 531763109}
+        m_TargetAssemblyTypeName: LanTesterCrossoverPower, Assembly-CSharp
         m_MethodName: TogglePowerState
         m_Mode: 1
         m_Arguments:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 130814572}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SusunKabelCrossoverManager, Assembly-CSharp
         m_MethodName: BukaZoomKanan
         m_Mode: 1
         m_Arguments:
@@ -4043,8 +4043,8 @@ GameObject:
   - component: {fileID: 531763105}
   - component: {fileID: 531763104}
   - component: {fileID: 531763106}
-  - component: {fileID: 531763107}
   - component: {fileID: 531763108}
+  - component: {fileID: 531763109}
   m_Layer: 5
   m_Name: 'Slide 9 : LAN Tester'
   m_TagString: Untagged
@@ -4127,25 +4127,6 @@ MonoBehaviour:
   overView: {fileID: 320333964}
   readyView: {fileID: 1323140103}
   durasiFade: 0.5
---- !u!114 &531763107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531763101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92695eb658e426043b51acca51034d8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LANTesterPower
-  testMgr: {fileID: 531763108}
-  switchThumb: {fileID: 168521211}
-  ledMerah: {fileID: 1054342899}
-  posX_Off: -234.2
-  posX_On: -217.7
-  slideDuration: 0.2
-  blinkInterval: 0.4
 --- !u!114 &531763108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4155,9 +4136,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 531763101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 052bc2ffbcf68b149871f231d42462aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b6ef0d61b782ba40ac055fcf197f9a8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LanTesterManager
+  m_EditorClassIdentifier: Assembly-CSharp::LanTesterCrossoverManager
   masterLEDs:
   - {fileID: 1516441975}
   - {fileID: 1277719689}
@@ -4180,6 +4161,25 @@ MonoBehaviour:
   alphaMati: 0.2
   alphaNyala: 1
   targetPutaran: 6
+--- !u!114 &531763109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531763101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce21dff79c0896244a31269e8de377d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LanTesterCrossoverPower
+  testMgr: {fileID: 531763108}
+  switchThumb: {fileID: 168521211}
+  ledMerah: {fileID: 1054342899}
+  posX_Off: -234.2
+  posX_On: -217.7
+  slideDuration: 0.15
+  blinkInterval: 0.35
 --- !u!1 &536950481
 GameObject:
   m_ObjectHideFlags: 0
@@ -7835,7 +7835,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 130814572}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SusunKabelCrossoverManager, Assembly-CSharp
         m_MethodName: SelesaiKanan
         m_Mode: 1
         m_Arguments:
@@ -10077,7 +10077,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 130814572}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SusunKabelCrossoverManager, Assembly-CSharp
         m_MethodName: SelesaiKiri
         m_Mode: 1
         m_Arguments:
@@ -13191,7 +13191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 130814572}
-        m_TargetAssemblyTypeName: SusunKabelManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: SusunKabelCrossoverManager, Assembly-CSharp
         m_MethodName: BukaZoomKiri
         m_Mode: 1
         m_Arguments:
