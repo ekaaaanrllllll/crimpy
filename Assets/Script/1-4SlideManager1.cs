@@ -48,30 +48,29 @@ public class SlideManagerOld : MonoBehaviour
     // LOGIKA TAMPILAN SLIDE & NAVIGASI BIASA
     // ==========================================
     void ShowSlide(int index)
-{
-    // Aktifkan slide yang terpilih dan matikan sisanya
-    for (int i = 0; i < slides.Length; i++)
     {
-        if (slides[i] != null) slides[i].SetActive(i == index);
-    }
+        // Aktifkan slide yang terpilih dan matikan sisanya
+        for (int i = 0; i < slides.Length; i++)
+        {
+            if (slides[i] != null) slides[i].SetActive(i == index);
+        }
 
-    // 1. Atur Play Button (Hanya muncul di Slide Awal / Index 0)
-    if (playButton != null) 
-    {
-        playButton.SetActive(index == 0);
-    }
+        // Atur Play Button (Hanya muncul di Slide Awal / Index 0)
+        if (playButton != null) 
+        {
+            playButton.SetActive(index == 0);
+        }
 
-    // 2. Atur Tombol Next (Hanya muncul jika BUKAN di slide awal, dan belum mentok di slide terakhir)
-    if (nextButton != null)
-    {
-        // Syarat: index harus di atas 0 DAN index harus lebih kecil dari slide terakhir
-        nextButton.gameObject.SetActive(index > 0 && index < slides.Length - 1);
-    }
+        // Atur Tombol Next (Sembunyikan hanya jika sudah di slide paling terakhir)
+        if (nextButton != null)
+        {
+            nextButton.gameObject.SetActive(index < slides.Length - 1);
+        }
 
-    // 3. Atur Tombol Prev (Sembunyikan jika berada di Slide Awal / Index 0)
-    if (prevButton != null)
-    {
-        prevButton.gameObject.SetActive(index > 0);
+        // Atur Tombol Prev (Sembunyikan jika berada di Slide Awal / Index 0)
+        if (prevButton != null)
+        {
+            prevButton.gameObject.SetActive(index > 0);
+        }
     }
-}
 }
