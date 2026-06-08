@@ -9,6 +9,10 @@ public class MateriPertemuan4Manager : MonoBehaviour
     [Header("Panel Materi Utama")]
     public GameObject panelMateriUtama;
 
+    [Header("Panel Kuis / Quiz (TAMBAHAN BARU)")]
+    [Tooltip("Tarik objek Slide 10: Quiz ke dalam slot ini")]
+    public GameObject panelQuiz; 
+
     [Header("Panel Pencegahan & Perbaikan")]
     public GameObject panelPencegahan;
     public GameObject panelPerbaikan;
@@ -37,6 +41,7 @@ public class MateriPertemuan4Manager : MonoBehaviour
         
         // Matikan semua panel lainnya
         panelMateriUtama.SetActive(false);
+        if (panelQuiz != null) panelQuiz.SetActive(false); // Pastikan kuis mati di awal game
         panelPencegahan.SetActive(false);
         panelPerbaikan.SetActive(false);
         panelAnalisis_Slide1.SetActive(false);
@@ -77,6 +82,21 @@ public class MateriPertemuan4Manager : MonoBehaviour
         panelAnalisis_Slide1.SetActive(true); // Membuka Slide 1 dari Analisis Masalah
     }
 
+    // FUNGSI BARU: Dipanggil oleh tombol Next di Panel_MateriUtama untuk pindah ke kuis
+    public void PindahKePanelQuiz()
+    {
+        if (panelQuiz != null)
+        {
+            panelMateriUtama.SetActive(false);
+            panelQuiz.SetActive(true);
+            Debug.Log("[NAVIGASI] Pindah dari Materi Utama ke Panel Quiz.");
+        }
+        else
+        {
+            Debug.LogError("Objek Panel Quiz belum dimasukkan ke slot Inspector, brow!");
+        }
+    }
+
     // Tombol Prev Universal untuk kembali ke Menu Materi Utama
     public void KembaliKeMateriUtama()
     {
@@ -85,6 +105,7 @@ public class MateriPertemuan4Manager : MonoBehaviour
         panelPerbaikan.SetActive(false);
         panelAnalisis_Slide1.SetActive(false);
         panelAnalisis_Slide2.SetActive(false);
+        if (panelQuiz != null) panelQuiz.SetActive(false);
 
         // Nyalakan materi utama
         panelMateriUtama.SetActive(true);

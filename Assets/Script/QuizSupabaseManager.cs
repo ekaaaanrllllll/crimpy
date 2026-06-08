@@ -5,7 +5,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using QuizSupabase;
+using QuizSupabase; // Menggunakan data model yang kamu kirim
 
 public class QuizSupabaseManager : MonoBehaviour
 {
@@ -25,8 +25,20 @@ public class QuizSupabaseManager : MonoBehaviour
     [Header("UI Game Kuis References")]
     public GameObject panelGameKuis;
     public TMP_Text textPertanyaan;
-    public TMP_Text[] textChoices; // Taruh 4 Text Komponen (Teks_A s/d Teks_D)
-    public Button[] buttonChoices; // Taruh 4 Button Komponen (Tombol_A s/d Tombol_D)
+    public TMP_Text[] textChoices; 
+    public Button[] buttonChoices; 
+
+    [Header("Pengaturan Efek Jawaban")]
+    public Color warnaBenar = Color.green;
+    public Color warnaSalah = Color.red;
+    public Vector2 ketebalanOutline = new Vector2(5f, -5f);
+    public float durasiJedaEfek = 1.5f;
+
+    [Header("UI Score References")]
+    [Tooltip("Tarik objek Panel_Score dari Hierarchy ke sini")]
+    public GameObject panelHasilSkor; 
+    [Tooltip("Tarik teks untuk menampilkan nilai angka akhir (Tempat tulisan New Text)")]
+    public TMP_Text textSkorAkhir;
 
     // State internal kuis
     private int currentStudentId;
@@ -37,21 +49,38 @@ public class QuizSupabaseManager : MonoBehaviour
     private int currentQuestionIndex = 0;
     private int totalJawabanBenar = 0;
     private Dictionary<int, Choice> userSelectedChoices = new Dictionary<int, Choice>();
+    
+    private List<Outline> choiceOutlines = new List<Outline>();
+    private bool sedangProsesPindahSoal = false;
+
+    void Awake()
+    {
+        foreach (Button btn in buttonChoices)
+        {
+            if (btn != null)
+            {
+                Outline outline = btn.GetComponent<Outline>();
+                if (outline == null) outline = btn.gameObject.AddComponent<Outline>();
+                outline.effectDistance = ketebalanOutline;
+                outline.enabled = false;
+                choiceOutlines.Add(outline);
+            }
+        }
+    }
 
     void OnEnable()
     {
-        // Posisi awal panel saat slide dibuka
         panelLogin.SetActive(true);
         panelGameKuis.SetActive(false);
+        if (panelHasilSkor != null) panelHasilSkor.SetActive(false); 
 
         currentQuestionIndex = 0;
         totalJawabanBenar = 0;
         userSelectedChoices.Clear();
+        sedangProsesPindahSoal = false;
+        ResetEfekTombol();
     }
 
-    // ==========================================
-    // 1. PROSES LOGIN (CEK DULU BARU POST JIKA BELUM ADA)
-    // ==========================================
     public void AmbilDataInputLogin()
     {
         string namaSiswa = inputNama.text.Trim();
@@ -68,8 +97,6 @@ public class QuizSupabaseManager : MonoBehaviour
 
     IEnumerator CekAtauDaftarStudent(string nama, string kelas)
     {
-        // Jalankan pengecekan data kembar menggunakan query EQ (Equal) di Supabase
-        // Menggunakan url encode agar spasi atau karakter unik pada nama/kelas tidak bikin URL error
         string escapedNama = UnityWebRequest.EscapeURL(nama);
         string escapedKelas = UnityWebRequest.EscapeURL(kelas);
         string checkUrl = $"{supabaseUrl}/rest/v1/students?name=eq.{escapedNama}&class_name=eq.{escapedKelas}&select=id";
@@ -85,33 +112,29 @@ public class QuizSupabaseManager : MonoBehaviour
             {
                 string checkResponse = checkRequest.downloadHandler.text;
 
-                // Jika respon tidak kosong dan tidak cuma berupa array kosong "[]"
+                // Memastikan respons tidak kosong dan bukan array kosong "[]"
                 if (!string.IsNullOrEmpty(checkResponse) && checkResponse != "[]")
                 {
-                    // Bersihkan tanda urung siku array JSON dari Supabase
+                    // FIX PARSE ERROR: Karena Supabase mengembalikan Array [ {} ], kita bersihkan kurung sikunya terlebih dahulu
                     string cleanJson = checkResponse.TrimStart('[').TrimEnd(']');
+                    
+                    // Menggunakan StudentResponse karena data dari Supabase membawa field "id"
                     StudentResponse existingStudent = JsonUtility.FromJson<StudentResponse>(cleanJson);
 
                     currentStudentId = existingStudent.id;
-                    Debug.Log($"<color=cyan>[SUPABASE INFO]</color> Siswa lama ditemukan! Menggunakan ID yang sudah ada: {currentStudentId}");
+                    Debug.Log($"<color=cyan>[SUPABASE INFO]</color> Siswa lama ditemukan! ID: {currentStudentId}");
                     
-                    // Langsung masuk ke game kuis tanpa bikin baris baru di DB
                     MasukKeGameKuis();
                     yield break; 
                 }
             }
-            else
-            {
-                Debug.LogWarning($"Pengecekan siswa gagal/error, mencoba mendaftar langsung: {checkRequest.error}");
-            }
         }
 
-        // ----------------------------------------------------
-        // KONDISI B: JIKA SISWA BELUM ADA, MAKA BUAT DATA BARU
-        // ----------------------------------------------------
-        Debug.Log("[SUPABASE] Siswa tidak ditemukan. Mendaftarkan sebagai siswa baru...");
+        // JIKA SISWA BELUM TERDAFTAR, LANJUT DAFTAR BARU
+        Debug.Log("[SUPABASE] Mendaftarkan sebagai siswa baru...");
         string postUrl = $"{supabaseUrl}/rest/v1/students";
         
+        // FIX CONFLICT ERROR: Menggunakan class 'Student' (yang HANYA berisi name & class_name tanpa id)
         Student newStudent = new Student { name = nama, class_name = kelas };
         string jsonPayload = JsonUtility.ToJson(newStudent);
 
@@ -119,6 +142,8 @@ public class QuizSupabaseManager : MonoBehaviour
         {
             byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonPayload);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            
+            // HANYA PAKAI YANG INI:
             request.downloadHandler = new DownloadHandlerBuffer();
             
             request.SetRequestHeader("apikey", supabaseApiKey);
@@ -130,18 +155,18 @@ public class QuizSupabaseManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
+                // FIX PARSE ERROR: Bersihkan kurung siku array hasil respons POST sebelum di-parse
                 string responseJson = request.downloadHandler.text.TrimStart('[').TrimEnd(']');
                 StudentResponse savedStudent = JsonUtility.FromJson<StudentResponse>(responseJson);
                 
-                currentStudentId = savedStudent.id;
-                Debug.Log($"<color=green>[SUPABASE SUCCESS]</color> Siswa Baru Berhasil Terdaftar! ID Baru: {currentStudentId}");
+                currentStudentId = savedStudent.id; // Sukses mendapatkan ID otomatis dari database (1, 2, 3...)
+                Debug.Log($"<color=green>[SUPABASE SUCCESS]</color> ID Baru: {currentStudentId}");
 
                 MasukKeGameKuis();
             }
             else
             {
-                Debug.LogError($"<color=red>[SUPABASE ERROR]</color> Gagal total memproses siswa!");
-                Debug.LogError($"Detail Pesan: {request.downloadHandler.text}");
+                Debug.LogError($"Gagal mendaftarkan siswa: {request.downloadHandler.text}");
             }
         }
     }
@@ -153,9 +178,6 @@ public class QuizSupabaseManager : MonoBehaviour
         StartCoroutine(GetMeetingIdThenFetchQuestions());
     }
 
-    // ==========================================
-    // 2. LOAD DATA SOAL BERDASARKAN PERTEMUAN
-    // ==========================================
     IEnumerator GetMeetingIdThenFetchQuestions()
     {
         string url = $"{supabaseUrl}/rest/v1/meetings?meeting_number=eq.{nomorPertemuanSceneIni}&select=id";
@@ -170,17 +192,11 @@ public class QuizSupabaseManager : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string responseJson = request.downloadHandler.text.TrimStart('[').TrimEnd(']');
-                
                 if (!string.IsNullOrEmpty(responseJson))
                 {
                     Meeting targetMeeting = JsonUtility.FromJson<Meeting>(responseJson);
                     selectedMeetingId = targetMeeting.id;
-                    
                     StartCoroutine(FetchQuestionsAndChoices(selectedMeetingId));
-                }
-                else
-                {
-                    Debug.LogError($"Pertemuan ke-{nomorPertemuanSceneIni} tidak ada di database!");
                 }
             }
         }
@@ -219,9 +235,6 @@ public class QuizSupabaseManager : MonoBehaviour
         TampilkanSoalKeUI();
     }
 
-    // ==========================================
-    // 3. TAMPILKAN SOAL DAN LOGIKA TOMBOL JAWABAN
-    // ==========================================
     void TampilkanSoalKeUI()
     {
         if (activeQuestions.Count == 0)
@@ -229,6 +242,9 @@ public class QuizSupabaseManager : MonoBehaviour
             textPertanyaan.text = "Tidak ada soal untuk pertemuan ini di database, brow.";
             return;
         }
+
+        ResetEfekTombol();
+        sedangProsesPindahSoal = false;
 
         Question currentQuestion = activeQuestions[currentQuestionIndex];
         textPertanyaan.text = currentQuestion.question_text;
@@ -240,11 +256,13 @@ public class QuizSupabaseManager : MonoBehaviour
             if (i < filteredChoices.Count)
             {
                 buttonChoices[i].gameObject.SetActive(true);
+                buttonChoices[i].interactable = true; 
                 Choice choiceData = filteredChoices[i];
                 textChoices[i].text = $"{choiceData.choice_label}.\n{choiceData.choice_text}";
                 
+                int indexTombol = i; 
                 buttonChoices[i].onClick.RemoveAllListeners();
-                buttonChoices[i].onClick.AddListener(() => JawabSoal(choiceData));
+                buttonChoices[i].onClick.AddListener(() => JawabSoalWithFeedback(choiceData, indexTombol));
             }
             else
             {
@@ -253,11 +271,43 @@ public class QuizSupabaseManager : MonoBehaviour
         }
     }
 
-    void JawabSoal(Choice pilihanYangDipilih)
+    void JawabSoalWithFeedback(Choice pilihanYangDipilih, int indexTombol)
     {
+        if (sedangProsesPindahSoal) return;
+        sedangProsesPindahSoal = true;
+
+        foreach (Button btn in buttonChoices) btn.interactable = false;
+
         userSelectedChoices[currentQuestionIndex] = pilihanYangDipilih;
 
-        if (pilihanYangDipilih.is_correct) totalJawabanBenar++;
+        if (pilihanYangDipilih.is_correct)
+        {
+            totalJawabanBenar++;
+            choiceOutlines[indexTombol].effectColor = warnaBenar;
+            choiceOutlines[indexTombol].enabled = true;
+        }
+        else
+        {
+            choiceOutlines[indexTombol].effectColor = warnaSalah;
+            choiceOutlines[indexTombol].enabled = true;
+
+            List<Choice> filteredChoices = activeChoices.FindAll(c => c.question_id == activeQuestions[currentQuestionIndex].id);
+            for (int i = 0; i < filteredChoices.Count; i++)
+            {
+                if (filteredChoices[i].is_correct && i < choiceOutlines.Count)
+                {
+                    choiceOutlines[i].effectColor = warnaBenar;
+                    choiceOutlines[i].enabled = true;
+                }
+            }
+        }
+
+        StartCoroutine(JedaPindahSoal());
+    }
+
+    IEnumerator JedaPindahSoal()
+    {
+        yield return new WaitForSeconds(durasiJedaEfek);
 
         if (currentQuestionIndex < activeQuestions.Count - 1)
         {
@@ -270,17 +320,25 @@ public class QuizSupabaseManager : MonoBehaviour
         }
     }
 
-    // ==========================================
-    // 4. OTOMATIS POST DATA SETELAH SOAL TERAKHIR
-    // ==========================================
+    void ResetEfekTombol()
+    {
+        foreach (Outline outline in choiceOutlines)
+        {
+            if (outline != null) outline.enabled = false;
+        }
+    }
+
     IEnumerator PostQuizAttemptAndAnswers()
     {
         panelGameKuis.SetActive(false); 
-        Debug.Log("[PROCESS] Soal habis! Sedang mengirim seluruh data jawaban siswa ke Supabase...");
+        Debug.Log("[PROCESS] Soal habis! Mengirim hasil kuis siswa...");
 
         float nilaiAkhir = ((float)totalJawabanBenar / activeQuestions.Count) * 100f;
+        int nilaiBulat = Mathf.RoundToInt(nilaiAkhir); 
 
         string attemptUrl = $"{supabaseUrl}/rest/v1/quiz_attempts";
+        
+        // Menggunakan class QuizAttempt (Tanpa field ID agar auto-increment)
         QuizAttempt attempt = new QuizAttempt { student_id = currentStudentId, meeting_id = selectedMeetingId, score = nilaiAkhir };
         string jsonAttempt = JsonUtility.ToJson(attempt);
 
@@ -298,17 +356,33 @@ public class QuizSupabaseManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
+                // FIX PARSE ERROR: Bersihkan [] pada response quiz_attempts sebelum di-parse ke QuizAttemptResponse
                 string res = request.downloadHandler.text.TrimStart('[').TrimEnd(']');
                 QuizAttemptResponse savedAttempt = JsonUtility.FromJson<QuizAttemptResponse>(res);
                 int generatedAttemptId = savedAttempt.id;
 
                 yield return StartCoroutine(PostDetailedAnswers(generatedAttemptId));
                 
-                Debug.Log("<color=green>[SUCCESS]</color> Mantap! Data nilai & rincian jawaban siswa otomatis aman di PostgreSQL Supabase!");
+                Debug.Log("<color=green>[SUCCESS]</color> Seluruh data tersimpan!");
+                BukaHalamanSkor(nilaiBulat);
             }
             else
             {
                 Debug.LogError($"Gagal mengirim hasil kuis: {request.error}");
+                BukaHalamanSkor(nilaiBulat);
+            }
+        }
+    }
+
+    void BukaHalamanSkor(int nilai)
+    {
+        if (panelHasilSkor != null)
+        {
+            panelHasilSkor.SetActive(true); // Membuka Panel_Score otomatis
+
+            if (textSkorAkhir != null)
+            {
+                textSkorAkhir.text = nilai.ToString(); // Mengubah teks "New Text" jadi nilai murni angka
             }
         }
     }
