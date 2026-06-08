@@ -192,7 +192,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Pertemuan4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &123957788
@@ -1348,7 +1348,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Pertemuan3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1726432734
