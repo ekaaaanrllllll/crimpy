@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-// Ubah nama class menjadi SlideManager23 agar sinkron dengan kebutuhan scene 2-3
 public class SlideManager23 : MonoBehaviour
 {
     [Header("1. Daftar Slide Materi")]
@@ -17,9 +16,12 @@ public class SlideManager23 : MonoBehaviour
     public GameObject popupSelesai; 
     public CanvasGroup popupCanvasGroup; 
     
-    [Header("4. Tambahan Animasi")]
+    [Header("4. Tambahan Animasi & Jeda")]
     public Transform popupKonten; 
-    public float durasiAnimasi = 0.5f;
+    [Tooltip("Waktu tunggu setelah aktivitas selesai sebelum popup mulai muncul (Detik)")]
+    public float jedaSebelumMuncul = 2.0f; // Kita set ke 2 detik agar player bisa melihat hasilnya dulu
+    [Tooltip("Durasi proses pemudaran/fade-in popup (Detik)")]
+    public float durasiAnimasi = 0.6f;     // Sedikit dinaikkan agar transisinya terasa lebih sinematik/smooth
 
     private int currentSlide = 0;
 
@@ -48,7 +50,6 @@ public class SlideManager23 : MonoBehaviour
 
         if (playButton != null) playButton.SetActive(index == 0);
 
-        // Aturan Scene 2 & 3: Tombol Next & Prev hanya muncul di slide 1 sampai 3
         if (index >= 1 && index <= 3) 
         {
             if (nextButton != null) 
@@ -69,28 +70,38 @@ public class SlideManager23 : MonoBehaviour
         }
     }
 
+    // Fungsi utama yang dipanggil setelah aktivitas player selesai
     public void TampilkanPopupSelesai()
     {
         if (popupSelesai != null)
         {
             StopAllCoroutines(); 
-            StartCoroutine(AnimasiMasukPopup());
+            // Menjalankan coroutine baru yang memuat logika jeda waktu dan animasi smooth
+            StartCoroutine(AlurMunculPopupSmooth());
         }
     }
 
-    IEnumerator AnimasiMasukPopup()
+    IEnumerator AlurMunculPopupSmooth()
     {
+        // 1. JEDA WAKTU: Biarkan player melihat apa yang baru saja mereka lakukan
+        yield return new WaitForSeconds(jedaSebelumMuncul);
+
+        // 2. PERSIAPAN AWAL ANIMASI: Aktifkan objek dalam keadaan transparan (Alpha = 0)
         popupSelesai.SetActive(true);
-        popupCanvasGroup.alpha = 0;
+        if (popupCanvasGroup != null) popupCanvasGroup.alpha = 0;
         if (popupKonten != null) popupKonten.localScale = Vector3.one * 0.7f; 
 
+        // 3. PROSES FADE IN & ZOOM SMOOTH
         float timer = 0;
         while (timer < durasiAnimasi)
         {
             timer += Time.deltaTime;
             float progress = timer / durasiAnimasi;
-            popupCanvasGroup.alpha = progress;
+            
+            // Efek pemudaran transparan ke pekat
+            if (popupCanvasGroup != null) popupCanvasGroup.alpha = progress;
 
+            // Efek pembesaran skala menggunakan interpolasi Sinusoidal agar mulus di akhir
             if (popupKonten != null)
             {
                 float scale = Mathf.Lerp(0.7f, 1f, Mathf.Sin(progress * Mathf.PI * 0.5f));
@@ -99,7 +110,8 @@ public class SlideManager23 : MonoBehaviour
             yield return null;
         }
 
-        popupCanvasGroup.alpha = 1;
+        // 4. MEMASTIKAN POSISI AKHIR SEMPURNA
+        if (popupCanvasGroup != null) popupCanvasGroup.alpha = 1;
         if (popupKonten != null) popupKonten.localScale = Vector3.one;
     }
 
