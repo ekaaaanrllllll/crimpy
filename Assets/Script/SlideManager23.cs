@@ -12,6 +12,10 @@ public class SlideManager23 : MonoBehaviour
     public Button nextButton;      
     public Button prevButton;
 
+    [Tooltip("Index slide terakhir yang MASIH boleh memunculkan tombol Next. Di slide setelah angka ini, tombol Next akan otomatis HILANG.")]
+    [Header("⚠️ Batas Tombol Next (Setel di Inspector!)")]
+    public int batasMaksimalNext = 3; 
+
     [Header("3. Pengaturan Popup Selesai")]
     public GameObject popupSelesai; 
     public CanvasGroup popupCanvasGroup; 
@@ -19,9 +23,9 @@ public class SlideManager23 : MonoBehaviour
     [Header("4. Tambahan Animasi & Jeda")]
     public Transform popupKonten; 
     [Tooltip("Waktu tunggu setelah aktivitas selesai sebelum popup mulai muncul (Detik)")]
-    public float jedaSebelumMuncul = 2.0f; // Kita set ke 2 detik agar player bisa melihat hasilnya dulu
+    public float jedaSebelumMuncul = 2.0f; 
     [Tooltip("Durasi proses pemudaran/fade-in popup (Detik)")]
-    public float durasiAnimasi = 0.6f;     // Sedikit dinaikkan agar transisinya terasa lebih sinematik/smooth
+    public float durasiAnimasi = 0.6f;     
 
     private int currentSlide = 0;
 
@@ -43,65 +47,72 @@ public class SlideManager23 : MonoBehaviour
 
     void ShowSlide(int index)
     {
+        // 1. Aktifkan slide yang dipilih, matikan slide lainnya
         for (int i = 0; i < slides.Length; i++)
         {
             if (slides[i] != null) slides[i].SetActive(i == index);
         }
 
+        // 2. Tombol Play Utama hanya muncul di Slide 0
         if (playButton != null) playButton.SetActive(index == 0);
 
-        if (index >= 1 && index <= 3) 
+        // 3. Logika Navigasi Berdasarkan Batas yang Diisi di Inspector
+        if (index >= 1) 
         {
-            if (nextButton != null) 
-            {
-                nextButton.gameObject.SetActive(true);
-                nextButton.interactable = (index != slides.Length - 1); 
-            }
+            // Tombol PREV selalu muncul dari slide 1 sampai akhir materi
             if (prevButton != null) 
             {
                 prevButton.gameObject.SetActive(true);
                 prevButton.interactable = true;
             }
+
+            if (nextButton != null) 
+            {
+                // JIKA index saat ini sudah menyentuh atau melewati batas maksimal yang kamu tentukan
+                if (index >= batasMaksimalNext)
+                {
+                    nextButton.gameObject.SetActive(false); // Sembunyikan tombol next!
+                }
+                else
+                {
+                    nextButton.gameObject.SetActive(true); // Munculkan tombol next
+                    nextButton.interactable = true; 
+                }
+            }
         }
         else 
         {
+            // Jika kembali ke halaman judul (index 0), matikan kedua navigasi
             if (nextButton != null) nextButton.gameObject.SetActive(false);
             if (prevButton != null) prevButton.gameObject.SetActive(false);
         }
     }
 
-    // Fungsi utama yang dipanggil setelah aktivitas player selesai
     public void TampilkanPopupSelesai()
     {
         if (popupSelesai != null)
         {
             StopAllCoroutines(); 
-            // Menjalankan coroutine baru yang memuat logika jeda waktu dan animasi smooth
             StartCoroutine(AlurMunculPopupSmooth());
         }
     }
 
     IEnumerator AlurMunculPopupSmooth()
     {
-        // 1. JEDA WAKTU: Biarkan player melihat apa yang baru saja mereka lakukan
         yield return new WaitForSeconds(jedaSebelumMuncul);
 
-        // 2. PERSIAPAN AWAL ANIMASI: Aktifkan objek dalam keadaan transparan (Alpha = 0)
         popupSelesai.SetActive(true);
         if (popupCanvasGroup != null) popupCanvasGroup.alpha = 0;
         if (popupKonten != null) popupKonten.localScale = Vector3.one * 0.7f; 
 
-        // 3. PROSES FADE IN & ZOOM SMOOTH
         float timer = 0;
         while (timer < durasiAnimasi)
         {
             timer += Time.deltaTime;
             float progress = timer / durasiAnimasi;
             
-            // Efek pemudaran transparan ke pekat
             if (popupCanvasGroup != null) popupCanvasGroup.alpha = progress;
 
-            // Efek pembesaran skala menggunakan interpolasi Sinusoidal agar mulus di akhir
             if (popupKonten != null)
             {
                 float scale = Mathf.Lerp(0.7f, 1f, Mathf.Sin(progress * Mathf.PI * 0.5f));
@@ -110,7 +121,6 @@ public class SlideManager23 : MonoBehaviour
             yield return null;
         }
 
-        // 4. MEMASTIKAN POSISI AKHIR SEMPURNA
         if (popupCanvasGroup != null) popupCanvasGroup.alpha = 1;
         if (popupKonten != null) popupKonten.localScale = Vector3.one;
     }

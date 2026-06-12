@@ -20,6 +20,11 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
     public int totalKrakMekanisme = 3; 
     private int krakCounter = 0;
 
+    [Header("Android Double Tap Settings")]
+    [Tooltip("Batas jeda waktu maksimal antar ketukan untuk dianggap sebagai double-tap (Detik)")]
+    public float batasJedaDoubleTap = 0.3f; 
+    private float waktuKetukanTerakhir = 0f;
+
     [Header("Perbaikan Posisi Tang (Fine Tuning)")]
     public Vector2 offsetTangKetutup = new Vector2(0f, 0f); 
 
@@ -31,9 +36,6 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    // =========================================================================
-    // 1. FUNGSI RETRY: Kembalikan kabel ke posisi paling awal (luar tang)
-    // =========================================================================
     public void ResetAksiCrimping()
     {
         this.enabled = true; 
@@ -52,19 +54,13 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
                 imageKabelRJ45.sprite = spriteRJ45CrimpBefore;
             }
             
-            // 🔥 SOLUSI UTAMA: Kembalikan skala visual ke normal (1, 1, 1) agar proporsi Before pas murni asli
             imageKabelRJ45.transform.localScale = Vector3.one;
-
-            // Pulangkan koordinat posisi awal luar tang kamu
             imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-612f, 84.646f);
         }
         
-        Debug.Log("Retry Sukses: Sprite kembali ke Before dengan skala asli 1:1!");
+        Debug.Log("Retry Sukses: Sprite kembali ke Before!");
     }
 
-    // =========================================================================
-    // 2. FUNGSI DRAG SUKSES: Ikut posisi target lubang, Skala tetap normal Before
-    // =========================================================================
     public void SetKabelMasukTang()
     {
         if (imageKabelRJ45 != null)
@@ -74,10 +70,8 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
                 imageKabelRJ45.sprite = spriteRJ45CrimpBefore;
             }
 
-            // Pastikan skala visualnya tidak gepeng (tetap proporsi normal murni bawaan Editor)
             imageKabelRJ45.transform.localScale = Vector3.one;
 
-            // Otomatis mengunci ke TitikTargetLobang kamu
             GameObject targetLobang = GameObject.Find("TitikTargetLobang");
             if (targetLobang != null)
             {
@@ -89,18 +83,30 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
                 imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-289f, -1.99f);
             }
             
-            Debug.Log("Kabel masuk lubang tang dengan skala normal.");
+            Debug.Log("Kabel masuk lubang tang.");
         }
     }
 
     // =========================================================================
-    // 3. MEKANISME KLIK JEPIT
+    // UTAMA: SISTEM DETEKSI DOUBLE TAP YANG AMAN UNTUK ANDROID
     // =========================================================================
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (eventData.clickCount == 2) 
+        // Hitung selisih waktu antara ketukan sekarang dengan ketukan sebelumnya
+        float selisihWaktu = Time.time - waktuKetukanTerakhir;
+
+        if (selisihWaktu <= batasJedaDoubleTap)
         {
+            // Jika ketukan kedua masuk sebelum batas waktu habis, eksekusi jepit!
             ProsesKlikJepitSempurna();
+            
+            // Reset waktu agar tidak terjadi triple-tap yang tidak sengaja
+            waktuKetukanTerakhir = 0f; 
+        }
+        else
+        {
+            // Jika terlalu lama, simpan waktu ketukan ini sebagai ketukan pertama
+            waktuKetukanTerakhir = Time.time;
         }
     }
 
@@ -135,12 +141,10 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
         yield return new WaitForSeconds(0.18f); 
         
         imageTangUtama.sprite = spriteTangKebuka;
-        imageTangUtama.rectTransform.anchoredPosition = posisiAsli;
+        // ↙️ HAPUS huruf 's' pada kata positionsAsli agar menjadi posisiAsli
+        imageTangUtama.rectTransform.anchoredPosition = posisiAsli; 
     }
 
-    // =========================================================================
-    // 4. FUNGSI FINISH SUKSES: Ganti sprite After, sesuaikan posisi & ukuran stretch
-    // =========================================================================
     void CrimpingSelesaiTuntas()
     {
         this.enabled = false;
@@ -149,11 +153,7 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
         if(imageKabelRJ45 != null && spriteRJ45CrimpAfter != null)
         {
             imageKabelRJ45.sprite = spriteRJ45CrimpAfter;
-            
-            // Mengubah posisi khusus untuk tipe asset After agar presisi di tengah tang
             imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-154.7229f, 87.76799f);
-            
-            // 🔥 RE-ADJUST UNTUK AFTER: Karena kanvas After bawaan aslinya lebih melebar, kita paksa sedikit skalanya agar pas memenuhi lubang tang
             imageKabelRJ45.rectTransform.sizeDelta = new Vector2(402.2377f, 226.2587f);
         }
 
