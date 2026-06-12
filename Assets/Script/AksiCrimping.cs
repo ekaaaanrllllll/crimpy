@@ -150,11 +150,20 @@ public class AksiCrimping : MonoBehaviour, IPointerClickHandler
         this.enabled = false;
         Debug.Log("KABEL BERHASIL DICRIMP SEMPURNA!");
 
-        if(imageKabelRJ45 != null && spriteRJ45CrimpAfter != null)
+        if (imageKabelRJ45 != null && spriteRJ45CrimpAfter != null)
         {
+            // 1. Ganti gambarnya ke sprite After
             imageKabelRJ45.sprite = spriteRJ45CrimpAfter;
-            imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-154.7229f, 87.76799f);
-            imageKabelRJ45.rectTransform.sizeDelta = new Vector2(402.2377f, 226.2587f);
+            
+            // 2. PAKSA POSISI ASLI (Sesuai koreksi kamu: X = -143, Y = 110.82)
+            imageKabelRJ45.rectTransform.anchoredPosition = new Vector2(-143f, 110.82f);
+
+            // 3. PAKSA UKURAN ASLI (Sesuai koreksi kamu: W = 394.0376, H = 221.6438)
+            imageKabelRJ45.rectTransform.sizeDelta = new Vector2(394.0376f, 221.6438f);
+            
+            // 4. Reset skala ke 1:1 dan matikan preserveAspect agar ukuran patuh total pada sizeDelta
+            imageKabelRJ45.transform.localScale = Vector3.one;
+            imageKabelRJ45.preserveAspect = false; 
         }
 
         if (FindFirstObjectByType<SlideManager23>() != null)
