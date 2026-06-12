@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pertemuan2.unity
     guid: 499b60caa91e2a04292669bad422f088
+  - enabled: 1
+    path: Assets/Scenes/Pertemuan3.unity
+    guid: 18e2641b60d843d46bc5122110a8fbea
+  - enabled: 1
+    path: Assets/Scenes/Pertemuan4.unity
+    guid: f842b73d8efde0b4580911d321e9d26f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f97989210f84bd8409dcd458906a285e
+guid: 6701d5de78f675649bb1c17e93846dac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3174197980030883087
-    second: PapanVolume_0
+      213: 6259983639586318526
+    second: slider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PapanVolume_0
+      name: slider_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 223
-        width: 1836
-        height: 740
+        x: 128
+        y: 430
+        width: 1532
+        height: 253
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fa2f7931cbf2f3d0800000000000000
-      internalID: -3174197980030883087
+      spriteID: eb8ac4114fdefd650800000000000000
+      internalID: 6259983639586318526
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PapanVolume_0: -3174197980030883087
+      slider_0: 6259983639586318526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
